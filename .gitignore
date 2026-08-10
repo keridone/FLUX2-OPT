@@ -1,0 +1,26 @@
+# Generated images and model weights
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gguf
+*.safetensors
+
+# Download and Python caches
+.cache/
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local environment and editor files
+.env
+.env.*
+.DS_Store
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.part
+*.crdownload
