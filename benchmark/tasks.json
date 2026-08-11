@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "name": "season-weather-edit-v1",
+  "resolution": [512, 512],
+  "tasks": [
+    {
+      "id": "season_001_winter_city",
+      "category": "season",
+      "target": "winter",
+      "seed": 101,
+      "source_prompt": "Photorealistic modern European city square in late spring, leafy green trees, pedestrians, cafes, dry pavement, clear mild daylight, wide angle architectural photography",
+      "edit_instruction": "Replace the current season with deep winter. Add natural snow cover and bare trees while preserving the exact buildings, people, street layout, camera angle, and composition."
+    },
+    {
+      "id": "season_002_autumn_lake",
+      "category": "season",
+      "target": "autumn",
+      "seed": 102,
+      "source_prompt": "Photorealistic calm mountain lake in summer, dense green deciduous forest, wooden pier, clear sky, natural daylight, landscape photography",
+      "edit_instruction": "Change the season from summer to peak autumn with red, orange, and golden foliage. Preserve the lake, pier, mountains, camera position, reflections, and composition."
+    },
+    {
+      "id": "season_003_spring_village",
+      "category": "season",
+      "target": "spring",
+      "seed": 103,
+      "source_prompt": "Photorealistic quiet rural village at the end of winter, leafless orchard, stone cottages, patches of old snow, overcast soft daylight",
+      "edit_instruction": "Replace late winter with fresh spring. Add new green leaves, blossoms, and spring grass while preserving every building, road, tree position, camera angle, and composition."
+    },
+    {
+      "id": "season_004_summer_temple",
+      "category": "season",
+      "target": "summer",
+      "seed": 104,
+      "source_prompt": "Photorealistic traditional Japanese temple garden in early spring, sparse pale blossoms, young foliage, stone path, soft morning light",
+      "edit_instruction": "Change the garden to lush midsummer with dense mature green foliage. Preserve the temple, lanterns, stone path, pond, camera angle, and scene layout."
+    },
+    {
+      "id": "season_005_winter_farm",
+      "category": "season",
+      "target": "winter",
+      "seed": 105,
+      "source_prompt": "Photorealistic countryside farm in summer, red barn, green fields, wooden fence, large oak tree, blue sky, afternoon light",
+      "edit_instruction": "Replace summer with a cold snowy winter. Cover fields and roofs with realistic snow and make the oak bare, preserving the barn, fence, terrain, camera, and composition."
+    },
+    {
+      "id": "season_006_autumn_forest",
+      "category": "season",
+      "target": "autumn",
+      "seed": 106,
+      "source_prompt": "Photorealistic hiking trail through a green deciduous forest in midsummer, small wooden bridge over a stream, filtered daylight",
+      "edit_instruction": "Change midsummer to late autumn with colorful leaves and some fallen leaves on the trail. Preserve the bridge, stream, tree geometry, camera angle, and framing."
+    },
+    {
+      "id": "season_007_spring_castle",
+      "category": "season",
+      "target": "spring",
+      "seed": 107,
+      "source_prompt": "Photorealistic historic stone castle and formal garden in winter, dormant hedges, bare trees, pale daylight, frontal composition",
+      "edit_instruction": "Replace winter with spring. Add fresh foliage and flowering garden plants while preserving the castle architecture, paths, hedges, camera, and composition."
+    },
+    {
+      "id": "season_008_summer_cabin",
+      "category": "season",
+      "target": "summer",
+      "seed": 108,
+      "source_prompt": "Photorealistic wooden cabin beside a mountain river in autumn, orange foliage, cool daylight, rocks and pine trees, wide landscape view",
+      "edit_instruction": "Change autumn to summer with green deciduous foliage and warm-season vegetation. Preserve the cabin, river, rocks, pines, camera angle, and composition."
+    },
+    {
+      "id": "season_009_winter_lighthouse",
+      "category": "season",
+      "target": "winter",
+      "seed": 109,
+      "source_prompt": "Photorealistic coastal lighthouse on a grassy cliff in late summer, calm ocean, wildflowers, clear daylight, cinematic wide shot",
+      "edit_instruction": "Change late summer to winter with snow and frost on the cliff and lighthouse surroundings. Preserve the lighthouse, coastline, ocean, camera angle, and framing."
+    },
+    {
+      "id": "season_010_autumn_suburb",
+      "category": "season",
+      "target": "autumn",
+      "seed": 110,
+      "source_prompt": "Photorealistic suburban residential street in spring, green lawns, flowering trees, parked cars, detached houses, clear morning light",
+      "edit_instruction": "Replace spring with autumn. Turn deciduous foliage golden and add fallen leaves while preserving all houses, cars, road geometry, camera, and composition."
+    },
+    {
+      "id": "weather_001_heavy_rain_city",
+      "category": "weather",
+      "target": "heavy_rain",
+      "seed": 201,
+      "source_prompt": "Photorealistic downtown city intersection in dry clear weather, cars and pedestrians, glass buildings, midday light, street photography",
+      "edit_instruction": "Replace the clear weather with heavy rain. Add realistic rainfall, wet reflective pavement, and appropriate overcast light while preserving all buildings, vehicles, people, camera, and composition."
+    },
+    {
+      "id": "weather_002_fog_valley",
+      "category": "weather",
+      "target": "dense_fog",
+      "seed": 202,
+      "source_prompt": "Photorealistic green mountain valley in clear weather, winding road, distant peaks, farmhouse, crisp daylight, elevated viewpoint",
+      "edit_instruction": "Replace clear weather with dense natural fog filling the valley. Preserve the road, farmhouse, terrain, mountain silhouettes, camera position, and composition."
+    },
+    {
+      "id": "weather_003_snow_street",
+      "category": "weather",
+      "target": "snowfall",
+      "seed": 203,
+      "source_prompt": "Photorealistic old town street in cold dry winter weather, bare trees, stone buildings, pedestrians in coats, no snow, soft daylight",
+      "edit_instruction": "Change the dry winter weather to active snowfall with realistic snow accumulating on roofs and pavement. Preserve buildings, people, street layout, camera, and composition."
+    },
+    {
+      "id": "weather_004_thunderstorm_coast",
+      "category": "weather",
+      "target": "thunderstorm",
+      "seed": 204,
+      "source_prompt": "Photorealistic rocky ocean coast in calm sunny weather, small fishing boat, lighthouse in distance, blue water, wide cinematic view",
+      "edit_instruction": "Replace calm sunshine with a dramatic thunderstorm, dark storm clouds, rough water, and distant lightning. Preserve the coast, boat, lighthouse, camera angle, and composition."
+    },
+    {
+      "id": "weather_005_overcast_park",
+      "category": "weather",
+      "target": "overcast",
+      "seed": 205,
+      "source_prompt": "Photorealistic urban park on a bright sunny day, walking path, pond, benches, mature trees, people, strong sunlight",
+      "edit_instruction": "Replace sunny weather with fully overcast weather and soft diffuse light. Preserve the people, pond, path, benches, trees, camera, and scene layout."
+    },
+    {
+      "id": "weather_006_clear_after_rain",
+      "category": "weather",
+      "target": "clear_after_rain",
+      "seed": 206,
+      "source_prompt": "Photorealistic narrow residential alley during steady rain, wet pavement, bicycles, plants, brick walls, gray daylight",
+      "edit_instruction": "Change the rainy weather to clear sunshine immediately after rain. Stop the rainfall but keep realistic wet surfaces and puddles, preserving every object, camera angle, and composition."
+    },
+    {
+      "id": "weather_007_sandstorm_desert",
+      "category": "weather",
+      "target": "sandstorm",
+      "seed": 207,
+      "source_prompt": "Photorealistic desert highway in clear calm weather, off-road vehicle, distant mesas, blue sky, bright afternoon sunlight",
+      "edit_instruction": "Replace clear weather with a strong sandstorm, airborne dust, reduced visibility, and warm diffused light. Preserve the vehicle, highway, mesas, camera, and composition."
+    },
+    {
+      "id": "weather_008_rain_temple",
+      "category": "weather",
+      "target": "rain",
+      "seed": 208,
+      "source_prompt": "Photorealistic ancient Chinese temple courtyard in dry cloudy weather, stone paving, red wooden halls, incense burner, symmetrical view",
+      "edit_instruction": "Change the dry weather to moderate rain with visible rainfall and wet reflective stone paving. Preserve the architecture, incense burner, camera alignment, and composition."
+    },
+    {
+      "id": "weather_009_frost_bridge",
+      "category": "weather",
+      "target": "freezing_frost",
+      "seed": 209,
+      "source_prompt": "Photorealistic suspension bridge over a forest river on a cool dry morning, green vegetation, clear air, no frost",
+      "edit_instruction": "Replace the dry morning with freezing frosty weather. Add natural frost and thin ice while preserving the bridge, river, forest geometry, camera angle, and composition."
+    },
+    {
+      "id": "weather_010_rainbow_fields",
+      "category": "weather",
+      "target": "sun_after_storm",
+      "seed": 210,
+      "source_prompt": "Photorealistic agricultural fields beneath dark rain clouds, distant farmhouse, wet crops, rainfall, wide open landscape",
+      "edit_instruction": "Change the storm to sunlight breaking through after rain with a natural rainbow. Preserve the fields, farmhouse, wet crops, horizon, camera, and composition."
+    }
+  ]
+}

@@ -11,7 +11,8 @@ FLUX.2 Klein 4B inference deployment and performance optimization for
 - Text encoder: Qwen3-4B Q4_K_M GGUF
 - VAE: FLUX.2 VAE
 - Inference: Euler, 4 steps, CFG 1.0, diffusion Flash Attention
-- 512 x 512 baseline: about 5.2 seconds end to end
+- 512 x 512 text-to-image reference: about 5.2 seconds end to end
+- 512 x 512 image-edit baseline: 7.0354 seconds median, 7.0760 seconds P95
 
 Model weights and generated images are intentionally excluded from Git.
 
@@ -54,6 +55,19 @@ the project virtual environment to `PATH` before invoking `sd-cli.exe`.
 
 ## Optimization workflow
 
-Future changes should be benchmarked against fixed prompts, seeds, dimensions,
-and sampling settings. Record at least total latency, sampling latency, peak
-VRAM, peak RAM, and output-quality observations.
+Phase 1 uses a fixed 20-task season/weather replacement set. See
+[`benchmark/PROTOCOL.md`](benchmark/PROTOCOL.md) for the locked protocol and
+[`benchmark/results/baseline-bfbef5b-q8-v1`](benchmark/results/baseline-bfbef5b-q8-v1)
+for the first performance and quality baseline.
+
+Run the benchmark on the Windows inference host:
+
+```powershell
+E:\flux\.venv\Scripts\python.exe E:\flux\benchmark\code\run_baseline.py `
+  --manifest E:\flux\benchmark\code\tasks.json `
+  --mode all `
+  --run-id baseline-bfbef5b-q8-v1
+```
+
+Future changes must use a new run ID and be compared against the fixed inputs,
+seeds, dimensions, sampling settings, and quality gate.
