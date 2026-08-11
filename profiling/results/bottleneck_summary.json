@@ -1,0 +1,24 @@
+{
+  "configuration": "baseline-bfbef5b-q8-v1",
+  "task": "season_001_winter_city",
+  "primary_bottlenecks": [
+    "low_occupancy_q8_matrix_multiply",
+    "low_occupancy_flash_attention",
+    "kernel_launch_and_synchronization_gaps",
+    "cpu_offload_host_to_device_staging"
+  ],
+  "secondary_bottlenecks": [
+    "bandwidth_bound_elementwise_broadcast",
+    "compute_bound_im2col"
+  ],
+  "global_dram_bandwidth_bottleneck": false,
+  "vram_capacity_bottleneck": false,
+  "peak_vram_mib": 6756.05,
+  "total_vram_mib": 16311,
+  "peak_vram_percent": 41.4202,
+  "h2d_total_mb": 7722.64,
+  "h2d_total_time_ms": 589.57359,
+  "kernel_launches": 6215,
+  "cuda_stream_synchronize_calls": 752,
+  "top_10_kernel_time_percent": 88.3
+}

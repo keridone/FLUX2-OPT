@@ -71,3 +71,8 @@ E:\flux\.venv\Scripts\python.exe E:\flux\benchmark\code\run_baseline.py `
 
 Future changes must use a new run ID and be compared against the fixed inputs,
 seeds, dimensions, sampling settings, and quality gate.
+
+The first CUDA profiling dataset and bottleneck analysis are under
+[`profiling/`](profiling/). It includes raw Nsight Systems/Compute reports,
+normalized CSV/JSON data for visualization, reproducible collection scripts,
+and the current compute/bandwidth/VRAM bottleneck classification.

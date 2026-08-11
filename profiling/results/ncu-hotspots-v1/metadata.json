@@ -1,0 +1,14 @@
+﻿{
+    "run_id":  "ncu-hotspots-v1",
+    "captured_at":  "2026-08-11T16:53:09.0572317+08:00",
+    "profiler":  "NVIDIA (R) Nsight Compute Command Line Profiler\r\nCopyright (c) 2018-2025 NVIDIA Corporation\r\nVersion 2025.3.1.0 (build 36398880) (public-release)",
+    "set":  "basic",
+    "launch_count":  1,
+    "profiles":  [
+                     {
+                         "label":  "mul_mat_q_type8",
+                         "regex":  ".*mul_mat_q\u003c\\(ggml_type\\)8,.*",
+                         "skip":  50
+                     }
+                 ]
+}

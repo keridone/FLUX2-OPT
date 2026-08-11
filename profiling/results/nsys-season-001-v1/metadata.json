@@ -1,0 +1,18 @@
+﻿{
+    "run_id":  "nsys-season-001-v1",
+    "captured_at":  "2026-08-11T16:35:14.4476946+08:00",
+    "profiler":  "NVIDIA Nsight Systems version 2025.3.2.474-253236389321v0",
+    "gpu":  "NVIDIA GeForce RTX 5060 Ti, 581.57, 16311 MiB, 180.00 W",
+    "command":  {
+                    "input_image":  "E:\\flux\\benchmark\\datasets\\season-weather-edit-v1\\inputs\\season_001_winter_city.png",
+                    "prompt":  "Change the scene to deep winter with fresh snow and frost. Preserve the street layout, buildings, people, camera viewpoint, and object positions.",
+                    "seed":  12001,
+                    "width":  512,
+                    "height":  512,
+                    "steps":  4,
+                    "sampler":  "euler",
+                    "cfg_scale":  1,
+                    "diffusion_flash_attention":  true,
+                    "cpu_offload":  true
+                }
+}

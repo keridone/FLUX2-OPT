@@ -1,0 +1,1937 @@
+{
+  "database": "E:\\flux\\profiling\\runs\\nsys-season-001-v1\\trace.sqlite",
+  "tables": {
+    "ANALYSIS_DETAILS": {
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "globalVid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "duration",
+          "type": "INTEGER"
+        },
+        {
+          "name": "startTime",
+          "type": "INTEGER"
+        },
+        {
+          "name": "stopTime",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "ANALYSIS_FILE": {
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "filename",
+          "type": "TEXT"
+        },
+        {
+          "name": "contentId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "globalPid",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "CUDA_GPU_MEMORY_USAGE_EVENTS": {
+      "row_count": 293,
+      "columns": [
+        {
+          "name": "start",
+          "type": "INTEGER"
+        },
+        {
+          "name": "globalPid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "deviceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address",
+          "type": "INTEGER"
+        },
+        {
+          "name": "pc",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bytes",
+          "type": "INTEGER"
+        },
+        {
+          "name": "memKind",
+          "type": "INTEGER"
+        },
+        {
+          "name": "memoryOperationType",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "correlationId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "streamId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "localMemoryPoolAddress",
+          "type": "INTEGER"
+        },
+        {
+          "name": "localMemoryPoolReleaseThreshold",
+          "type": "INTEGER"
+        },
+        {
+          "name": "localMemoryPoolSize",
+          "type": "INTEGER"
+        },
+        {
+          "name": "localMemoryPoolUtilizedSize",
+          "type": "INTEGER"
+        },
+        {
+          "name": "importedMemoryPoolAddress",
+          "type": "INTEGER"
+        },
+        {
+          "name": "importedMemoryPoolProcessId",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "CUPTI_ACTIVITY_KIND_CUDA_EVENT": {
+      "row_count": 21,
+      "columns": [
+        {
+          "name": "deviceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "greenContextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "streamId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "correlationId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "globalPid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "eventId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "eventSyncId",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "CUPTI_ACTIVITY_KIND_KERNEL": {
+      "row_count": 6215,
+      "columns": [
+        {
+          "name": "start",
+          "type": "INTEGER"
+        },
+        {
+          "name": "end",
+          "type": "INTEGER"
+        },
+        {
+          "name": "deviceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "greenContextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "streamId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "correlationId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "globalPid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "demangledName",
+          "type": "INTEGER"
+        },
+        {
+          "name": "shortName",
+          "type": "INTEGER"
+        },
+        {
+          "name": "mangledName",
+          "type": "INTEGER"
+        },
+        {
+          "name": "launchType",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cacheConfig",
+          "type": "INTEGER"
+        },
+        {
+          "name": "registersPerThread",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gridX",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gridY",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gridZ",
+          "type": "INTEGER"
+        },
+        {
+          "name": "blockX",
+          "type": "INTEGER"
+        },
+        {
+          "name": "blockY",
+          "type": "INTEGER"
+        },
+        {
+          "name": "blockZ",
+          "type": "INTEGER"
+        },
+        {
+          "name": "staticSharedMemory",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dynamicSharedMemory",
+          "type": "INTEGER"
+        },
+        {
+          "name": "localMemoryPerThread",
+          "type": "INTEGER"
+        },
+        {
+          "name": "localMemoryTotal",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gridId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sharedMemoryExecuted",
+          "type": "INTEGER"
+        },
+        {
+          "name": "graphNodeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sharedMemoryLimitConfig",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "CUPTI_ACTIVITY_KIND_MEMCPY": {
+      "row_count": 877,
+      "columns": [
+        {
+          "name": "start",
+          "type": "INTEGER"
+        },
+        {
+          "name": "end",
+          "type": "INTEGER"
+        },
+        {
+          "name": "deviceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "greenContextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "streamId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "correlationId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "globalPid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bytes",
+          "type": "INTEGER"
+        },
+        {
+          "name": "copyKind",
+          "type": "INTEGER"
+        },
+        {
+          "name": "deprecatedSrcId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "srcKind",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dstKind",
+          "type": "INTEGER"
+        },
+        {
+          "name": "srcDeviceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "srcContextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dstDeviceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dstContextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "migrationCause",
+          "type": "INTEGER"
+        },
+        {
+          "name": "graphNodeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "virtualAddress",
+          "type": "INTEGER"
+        },
+        {
+          "name": "copyCount",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "CUPTI_ACTIVITY_KIND_MEMSET": {
+      "row_count": 21,
+      "columns": [
+        {
+          "name": "start",
+          "type": "INTEGER"
+        },
+        {
+          "name": "end",
+          "type": "INTEGER"
+        },
+        {
+          "name": "deviceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "greenContextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "streamId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "correlationId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "globalPid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "value",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bytes",
+          "type": "INTEGER"
+        },
+        {
+          "name": "graphNodeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "memKind",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "CUPTI_ACTIVITY_KIND_RUNTIME": {
+      "row_count": 9215,
+      "columns": [
+        {
+          "name": "start",
+          "type": "INTEGER"
+        },
+        {
+          "name": "end",
+          "type": "INTEGER"
+        },
+        {
+          "name": "eventClass",
+          "type": "INTEGER"
+        },
+        {
+          "name": "globalTid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "correlationId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "nameId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "returnValue",
+          "type": "INTEGER"
+        },
+        {
+          "name": "callchainId",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "CUPTI_ACTIVITY_KIND_SYNCHRONIZATION": {
+      "row_count": 758,
+      "columns": [
+        {
+          "name": "start",
+          "type": "INTEGER"
+        },
+        {
+          "name": "end",
+          "type": "INTEGER"
+        },
+        {
+          "name": "deviceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "greenContextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "streamId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "correlationId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "globalPid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "deprecatedSyncType",
+          "type": "INTEGER"
+        },
+        {
+          "name": "syncType",
+          "type": "INTEGER"
+        },
+        {
+          "name": "eventId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "eventSyncId",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "DIAGNOSTIC_EVENT": {
+      "row_count": 14,
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "INTEGER"
+        },
+        {
+          "name": "timestampType",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source",
+          "type": "INTEGER"
+        },
+        {
+          "name": "severity",
+          "type": "INTEGER"
+        },
+        {
+          "name": "text",
+          "type": "TEXT"
+        },
+        {
+          "name": "globalPid",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "ENUM_CUDA_DEV_MEM_EVENT_OPER": {
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUDA_FUNC_CACHE_CONFIG": {
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUDA_KERNEL_LAUNCH_TYPE": {
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUDA_MEMCPY_OPER": {
+      "row_count": 14,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUDA_MEMPOOL_OPER": {
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUDA_MEMPOOL_TYPE": {
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUDA_MEM_KIND": {
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUDA_SHARED_MEM_LIMIT_CONFIG": {
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUDA_UNIF_MEM_ACCESS_TYPE": {
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUDA_UNIF_MEM_MIGRATION": {
+      "row_count": 6,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUPTI_STREAM_TYPE": {
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_CUPTI_SYNC_TYPE": {
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_DIAGNOSTIC_SEVERITY_LEVEL": {
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_DIAGNOSTIC_SOURCE_TYPE": {
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_DIAGNOSTIC_TIMESTAMP_SOURCE": {
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_NSYS_EVENT_CLASS": {
+      "row_count": 89,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_NSYS_EVENT_TYPE": {
+      "row_count": 150,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ENUM_NSYS_GENERIC_EVENT_FIELD_ETW_FLAGS": {
+      "row_count": 7,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ],
+      "sample_rows": [
+        [
+          1,
+          "EVENTMAP_INFO_FLAG_MANIFEST_VALUEMAP",
+          "Manifest Value Map"
+        ],
+        [
+          2,
+          "EVENTMAP_INFO_FLAG_MANIFEST_BITMAP",
+          "Manifest Bitmap"
+        ],
+        [
+          4,
+          "EVENTMAP_INFO_FLAG_MANIFEST_PATTERNMAP",
+          "Manifest Pattern Map"
+        ],
+        [
+          8,
+          "EVENTMAP_INFO_FLAG_WBEM_VALUEMAP",
+          "WBEM Value Map"
+        ],
+        [
+          16,
+          "EVENTMAP_INFO_FLAG_WBEM_BITMAP",
+          "WBEM Bitmap"
+        ]
+      ]
+    },
+    "ENUM_NSYS_GENERIC_EVENT_FIELD_ETW_PROPERTY": {
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ],
+      "sample_rows": [
+        [
+          1,
+          "PropertyStruct",
+          "Struct"
+        ],
+        [
+          2,
+          "PropertyParamLength",
+          "Param Length"
+        ],
+        [
+          4,
+          "PropertyParamCount",
+          "Param Count"
+        ],
+        [
+          8,
+          "PropertyWBEMXmlFragment",
+          "WBEM XML Fragment"
+        ],
+        [
+          16,
+          "PropertyParamFixedLength",
+          "Param Fixed Length"
+        ]
+      ]
+    },
+    "ENUM_NSYS_GENERIC_EVENT_FIELD_ETW_TYPE": {
+      "row_count": 22,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ],
+      "sample_rows": [
+        [
+          0,
+          "TDH_INTYPE_NULL",
+          "NULL"
+        ],
+        [
+          1,
+          "TDH_INTYPE_UNICODESTRING",
+          "Unicode String"
+        ],
+        [
+          2,
+          "TDH_INTYPE_ANSISTRING",
+          "ANSI String"
+        ],
+        [
+          3,
+          "TDH_INTYPE_INT8",
+          "int8"
+        ],
+        [
+          4,
+          "TDH_INTYPE_UINT8",
+          "uint8"
+        ]
+      ]
+    },
+    "ENUM_NSYS_GENERIC_EVENT_FIELD_TYPE": {
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ],
+      "sample_rows": [
+        [
+          0,
+          "Signed",
+          "Signed Integer"
+        ],
+        [
+          1,
+          "Unsigned",
+          "Unsigned Integer"
+        ],
+        [
+          2,
+          "Float",
+          "Float"
+        ],
+        [
+          3,
+          "Double",
+          "Double"
+        ]
+      ]
+    },
+    "ENUM_NSYS_GENERIC_EVENT_GROUP": {
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ],
+      "sample_rows": [
+        [
+          0,
+          "Unknown",
+          "Unknown"
+        ],
+        [
+          1,
+          "FTrace",
+          "FTrace"
+        ],
+        [
+          2,
+          "NvMedia",
+          "NV Media"
+        ],
+        [
+          3,
+          "Hypervisor",
+          "Hypervisor"
+        ],
+        [
+          4,
+          "ETW",
+          "ETW"
+        ]
+      ]
+    },
+    "ENUM_NSYS_GENERIC_EVENT_SOURCE": {
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "label",
+          "type": "TEXT"
+        }
+      ],
+      "sample_rows": [
+        [
+          0,
+          "NotSpecified",
+          "Not Specified"
+        ],
+        [
+          1,
+          "ClockMonotonicRaw",
+          "Clock Monotoic Raw"
+        ],
+        [
+          2,
+          "CntVct",
+          "Counter-Timer Virtual Count Register"
+        ],
+        [
+          3,
+          "SessionNs",
+          "Session Nanoseconds"
+        ]
+      ]
+    },
+    "GENERIC_EVENT_SOURCES": {
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "sourceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "nameId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "timeSourceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sourceGroupId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hyperType",
+          "type": "TEXT"
+        },
+        {
+          "name": "hyperVersion",
+          "type": "TEXT"
+        },
+        {
+          "name": "hyperStructPrefix",
+          "type": "TEXT"
+        },
+        {
+          "name": "hyperMacroPrefix",
+          "type": "TEXT"
+        },
+        {
+          "name": "hyperFilterFlags",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hyperDomain",
+          "type": "TEXT"
+        },
+        {
+          "name": "data",
+          "type": "TEXT"
+        }
+      ],
+      "sample_rows": [
+        [
+          281479271677952,
+          0,
+          3,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ]
+    },
+    "GENERIC_EVENT_TYPES": {
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "typeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sourceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "nameId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hyperComment",
+          "type": "TEXT"
+        },
+        {
+          "name": "ftraceFormat",
+          "type": "TEXT"
+        },
+        {
+          "name": "etwProviderId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwProviderNameId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwTaskId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwTaskNameId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwEventId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwVersion",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwGuidHigh",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwGuidLow",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwGuid",
+          "type": "TEXT"
+        },
+        {
+          "name": "data",
+          "type": "TEXT"
+        }
+      ],
+      "sample_rows": [
+        [
+          281479271677952,
+          281479271677952,
+          13,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          281479271678720,
+          281479271677952,
+          13,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ]
+    },
+    "GENERIC_EVENT_TYPE_FIELDS": {
+      "row_count": 25,
+      "columns": [
+        {
+          "name": "typeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fieldIdx",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fieldNameId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "offset",
+          "type": "INTEGER"
+        },
+        {
+          "name": "size",
+          "type": "INTEGER"
+        },
+        {
+          "name": "type",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hyperTypeName",
+          "type": "TEXT"
+        },
+        {
+          "name": "hyperFormat",
+          "type": "TEXT"
+        },
+        {
+          "name": "hyperComment",
+          "type": "TEXT"
+        },
+        {
+          "name": "ftracePrefix",
+          "type": "TEXT"
+        },
+        {
+          "name": "ftraceSuffix",
+          "type": "TEXT"
+        },
+        {
+          "name": "etwFlags",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwCountFieldIndex",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwLengthFieldIndex",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwType",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwMapInfoFlags",
+          "type": "INTEGER"
+        },
+        {
+          "name": "etwOrderedFieldIndex",
+          "type": "INTEGER"
+        }
+      ],
+      "sample_rows": [
+        [
+          281479271677952,
+          0,
+          78,
+          0,
+          4,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          281479271677952,
+          1,
+          79,
+          4,
+          4,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          281479271677952,
+          2,
+          80,
+          8,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          281479271677952,
+          3,
+          81,
+          9,
+          3,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          281479271677952,
+          4,
+          82,
+          12,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ]
+    },
+    "GPU_METRICS": {
+      "row_count": 3391650,
+      "columns": [
+        {
+          "name": "rawTimestamp",
+          "type": "INTEGER"
+        },
+        {
+          "name": "timestamp",
+          "type": "INTEGER"
+        },
+        {
+          "name": "typeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "metricId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "value",
+          "type": "INTEGER"
+        }
+      ],
+      "sample_rows": [
+        [
+          -37731765,
+          -37731765,
+          281479271677952,
+          0,
+          -1416137296
+        ],
+        [
+          -37731765,
+          -37731765,
+          281479271677952,
+          1,
+          -1739347296
+        ],
+        [
+          -37731765,
+          -37731765,
+          281479271677952,
+          2,
+          0
+        ],
+        [
+          -37731765,
+          -37731765,
+          281479271677952,
+          3,
+          0
+        ],
+        [
+          -37731765,
+          -37731765,
+          281479271677952,
+          4,
+          0
+        ]
+      ]
+    },
+    "META_DATA_CAPTURE": {
+      "row_count": 162,
+      "columns": [
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "value",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "META_DATA_EXPORT": {
+      "row_count": 29,
+      "columns": [
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "value",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "PROFILER_OVERHEAD": {
+      "row_count": 32,
+      "columns": [
+        {
+          "name": "start",
+          "type": "INTEGER"
+        },
+        {
+          "name": "end",
+          "type": "INTEGER"
+        },
+        {
+          "name": "globalTid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "nameId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "returnValue",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "ProcessStreams": {
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "globalPid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "filenameId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contentId",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "StringIds": {
+      "row_count": 255,
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "value",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "TARGET_INFO_CUDA_CONTEXT_INFO": {
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "nullStreamId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hwId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "vmId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "processId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "deviceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "parentContextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "isGreenContext",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "TARGET_INFO_CUDA_DEVICE": {
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "gpuId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cudaId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "pid",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "TARGET_INFO_CUDA_STREAM": {
+      "row_count": 9,
+      "columns": [
+        {
+          "name": "streamId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hwId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "vmId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "processId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contextId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "priority",
+          "type": "INTEGER"
+        },
+        {
+          "name": "flag",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "TARGET_INFO_GPU": {
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "vmId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "busLocation",
+          "type": "TEXT"
+        },
+        {
+          "name": "isDiscrete",
+          "type": "INTEGER"
+        },
+        {
+          "name": "l2CacheSize",
+          "type": "INTEGER"
+        },
+        {
+          "name": "totalMemory",
+          "type": "INTEGER"
+        },
+        {
+          "name": "memoryBandwidth",
+          "type": "INTEGER"
+        },
+        {
+          "name": "clockRate",
+          "type": "INTEGER"
+        },
+        {
+          "name": "smCount",
+          "type": "INTEGER"
+        },
+        {
+          "name": "pwGpuId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "uuid",
+          "type": "TEXT"
+        },
+        {
+          "name": "luid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "chipName",
+          "type": "TEXT"
+        },
+        {
+          "name": "cuDevice",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ctxswDevPath",
+          "type": "TEXT"
+        },
+        {
+          "name": "ctrlDevPath",
+          "type": "TEXT"
+        },
+        {
+          "name": "revision",
+          "type": "INTEGER"
+        },
+        {
+          "name": "nodeMask",
+          "type": "INTEGER"
+        },
+        {
+          "name": "constantMemory",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxIPC",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxRegistersPerBlock",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxShmemPerBlock",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxShmemPerBlockOptin",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxShmemPerSm",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxRegistersPerSm",
+          "type": "INTEGER"
+        },
+        {
+          "name": "threadsPerWarp",
+          "type": "INTEGER"
+        },
+        {
+          "name": "asyncEngines",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxWarpsPerSm",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxBlocksPerSm",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxThreadsPerBlock",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxBlockDimX",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxBlockDimY",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxBlockDimZ",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxGridDimX",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxGridDimY",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maxGridDimZ",
+          "type": "INTEGER"
+        },
+        {
+          "name": "computeMajor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "computeMinor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "smMajor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "smMinor",
+          "type": "INTEGER"
+        }
+      ]
+    },
+    "TARGET_INFO_GPU_METRICS": {
+      "row_count": 25,
+      "columns": [
+        {
+          "name": "typeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sourceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "typeName",
+          "type": "TEXT"
+        },
+        {
+          "name": "metricId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "metricName",
+          "type": "TEXT"
+        }
+      ],
+      "sample_rows": [
+        [
+          281479271677952,
+          281479271677952,
+          "",
+          0,
+          "GPC Clock Frequency [MHz]"
+        ],
+        [
+          281479271677952,
+          281479271677952,
+          "",
+          1,
+          "SYS Clock Frequency [MHz]"
+        ],
+        [
+          281479271677952,
+          281479271677952,
+          "",
+          2,
+          "Sync Copy Engine Active [Throughput %]"
+        ],
+        [
+          281479271677952,
+          281479271677952,
+          "",
+          3,
+          "Sync Copy Engine Active [Cycles Active]"
+        ],
+        [
+          281479271677952,
+          281479271677952,
+          "",
+          4,
+          "Async Copy Engine Active 0 [Throughput %]"
+        ]
+      ]
+    },
+    "TARGET_INFO_SESSION_START_TIME": {
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "utcEpochNs",
+          "type": "INTEGER"
+        },
+        {
+          "name": "utcTime",
+          "type": "TEXT"
+        },
+        {
+          "name": "localTime",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "TARGET_INFO_SYSTEM_ENV": {
+      "row_count": 46,
+      "columns": [
+        {
+          "name": "globalVid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "devStateName",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "nameEnum",
+          "type": "INTEGER"
+        },
+        {
+          "name": "value",
+          "type": "TEXT"
+        }
+      ]
+    },
+    "ThreadNames": {
+      "row_count": 5,
+      "columns": [
+        {
+          "name": "nameId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "priority",
+          "type": "INTEGER"
+        },
+        {
+          "name": "globalTid",
+          "type": "INTEGER"
+        }
+      ]
+    }
+  }
+}

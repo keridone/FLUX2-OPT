@@ -1,0 +1,12 @@
+﻿
+NOTICE: Existing SQLite export found: E:\flux\profiling\runs\nsys-season-001-v1\trace.sqlite
+        It is assumed file was previously exported from: E:\flux\profiling\runs\nsys-season-001-v1\trace.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [E:\flux\profiling\runs\nsys-season-001-v1\trace.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2025.3.2\host-windows-x64\reports\cuda_gpu_mem_size_sum.py]... 
+Total (MB),Count,Avg (MB),Med (MB),Min (MB),Max (MB),StdDev (MB),Operation
+7722.640,734,10.521,0.010,0.000,1555.825,60.066,[CUDA memcpy Host-to-Device]
+3600.597,136,26.475,5.243,0.012,268.435,45.708,[CUDA memcpy Device-to-Device]
+21.496,7,3.071,0.524,0.524,15.729,5.666,[CUDA memcpy Device-to-Host]
+0.011,21,0.001,0.001,0.001,0.001,0.000,[CUDA memset]
+

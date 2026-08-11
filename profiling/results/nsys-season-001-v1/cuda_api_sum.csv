@@ -1,0 +1,44 @@
+﻿
+NOTICE: Existing SQLite export found: E:\flux\profiling\runs\nsys-season-001-v1\trace.sqlite
+        It is assumed file was previously exported from: E:\flux\profiling\runs\nsys-season-001-v1\trace.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [E:\flux\profiling\runs\nsys-season-001-v1\trace.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2025.3.2\host-windows-x64\reports\cuda_api_sum.py]... 
+Time (%),Total Time (ns),Num Calls,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+64.6,2932417805,752,3899491.8,31128.0,553,485480307,36208705.8,cudaStreamSynchronize
+20.3,923495609,4,230873902.3,194779779.0,16370354,517565697,229996076.2,cudaMallocHost
+7.2,328284843,4,82071210.8,58658676.0,3656580,207310911,97095705.5,cudaFreeHost
+2.6,118597866,4351,27257.6,4092.0,2675,15772223,535228.2,cudaLaunchKernelExC_v11060
+1.8,83740511,1722,48629.8,4333.0,2764,54865217,1355303.6,cudaLaunchKernel
+1.1,52125278,18,2895848.8,2653377.0,42714,7369569,1998843.7,cuLibraryLoadData
+0.9,38735385,12,3227948.8,1240906.0,20178,14039864,4567630.2,cudaFree
+0.5,21668122,142,152592.4,245.0,167,10092372,960390.5,cuKernelGetFunction
+0.4,18787419,877,21422.4,5813.0,2893,2038856,131624.3,cudaMemcpyAsync
+0.3,14082609,11,1280237.2,599084.0,11353,6463789,1908273.8,cudaMalloc
+0.1,3885548,21,185026.1,820.0,524,3861379,842359.1,cudaEventRecord
+0.0,986674,142,6948.4,4554.5,2806,85291,8362.1,cuLaunchKernel
+0.0,559189,1,559189.0,559189.0,559189,559189,0.0,cuMemUnmap
+0.0,239170,32,7474.1,5841.0,1210,55866,9075.5,cuLibraryGetKernel
+0.0,213000,2,106500.0,106500.0,95294,117706,15847.7,cuMemCreate
+0.0,122242,18,6791.2,346.0,278,110804,25970.5,cudaEventCreateWithFlags
+0.0,120705,21,5747.9,4569.0,2698,14500,3264.1,cudaMemsetAsync
+0.0,99351,892,111.4,87.0,46,3225,182.6,cuGetProcAddress_v2
+0.0,60373,41,1472.5,1032.0,380,5247,1324.7,cudaGetDeviceProperties_v12000
+0.0,31323,2,15661.5,15661.5,13688,17635,2791.0,cuMemSetAccess
+0.0,16008,4,4002.0,3850.0,592,7716,3020.7,cudaDeviceSynchronize
+0.0,14846,1,14846.0,14846.0,14846,14846,0.0,cudaStreamDestroy
+0.0,9698,1,9698.0,9698.0,9698,9698,0.0,cuCtxSynchronize
+0.0,9598,18,533.2,342.0,253,2107,476.6,cudaEventDestroy
+0.0,8132,105,77.4,51.0,45,1560,152.4,cuStreamGetCaptureInfo_v2
+0.0,8077,2,4038.5,4038.5,3851,4226,265.2,cuMemMap
+0.0,7867,1,7867.0,7867.0,7867,7867,0.0,cudaStreamCreateWithFlags
+0.0,6871,1,6871.0,6871.0,6871,6871,0.0,cuMemAddressReserve
+0.0,5309,1,5309.0,5309.0,5309,5309,0.0,cuMemAddressFree
+0.0,3171,4,792.8,623.0,236,1689,624.9,cuInit
+0.0,2551,3,850.3,173.0,114,2264,1224.6,cuModuleGetLoadingMode
+0.0,2528,1,2528.0,2528.0,2528,2528,0.0,cudaEventQuery
+0.0,2157,1,2157.0,2157.0,2157,2157,0.0,cuMemGetAllocationGranularity
+0.0,630,3,210.0,230.0,133,267,69.2,cuDeviceGetLuid
+0.0,507,2,253.5,253.5,177,330,108.2,cudaGetDriverEntryPoint_v11030
+0.0,308,2,154.0,154.0,154,154,0.0,cuMemRelease
+

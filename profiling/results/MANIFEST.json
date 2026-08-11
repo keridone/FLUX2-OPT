@@ -1,0 +1,185 @@
+{
+  "artifact_count": 36,
+  "artifacts": [
+    {
+      "path": "results/bottleneck_summary.json",
+      "bytes": 721,
+      "sha256": "747282bd3a9b042cdf864b8d01bcf538a0494fc558ee4c4553261b9e1a78a097"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/binary_broadcast.csv",
+      "bytes": 36155,
+      "sha256": "564042c73eb6f8adac54aac31591fd5bfd85510a803defc5ee3ac3272667f811"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/binary_broadcast.ncu-rep",
+      "bytes": 1391135,
+      "sha256": "eedf30d43d4e01697e4e690a2c1a883bd3c5d60074787099d39c03d34a0a673b"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/copy_scalar.csv",
+      "bytes": 36098,
+      "sha256": "676f0c35b2c52b5ca5fe3e812c6221a25b394fedf028cdde677c781b14d0ef5d"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/copy_scalar.ncu-rep",
+      "bytes": 615491,
+      "sha256": "18da2f3be471ff4e1b7f02b9ed6b3a55c07189f5743708b4d10b72ec303767f1"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/flash_attention.csv",
+      "bytes": 36313,
+      "sha256": "f1e5a3ff43c7402928eaf8347fec256f7a1fcc7e588cda321a7c813a5d254889"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/flash_attention.ncu-rep",
+      "bytes": 2005275,
+      "sha256": "330aa2af7ea33cdf234ab4221176826159f238220b29bfa7072fdb2282418859"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/hotspot_summary.csv",
+      "bytes": 2621,
+      "sha256": "271b234d42f9f7d60e70fb35ad72999a77d0438cac280d591f32491448204938"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/hotspot_summary.json",
+      "bytes": 6752,
+      "sha256": "e1c030498320f151ad2e5275af002d83df60e412ff67817114769ce16b29716d"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/im2col.csv",
+      "bytes": 36198,
+      "sha256": "9d67f9606f4f20484427f6323ddbff93279482ff49a9b702d3c63bdab7266cc0"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/im2col.ncu-rep",
+      "bytes": 215109,
+      "sha256": "7dc8583642bf6c25f77b818228619b091511d8e7366690f6f09bbbd5169f12fb"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/metadata.json",
+      "bytes": 563,
+      "sha256": "5bcb564d5fce39c913e83ed87dd5d27647bd2f069b57a39fd4dc15ef85fa0c71"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/mul_mat_q_type12.csv",
+      "bytes": 36095,
+      "sha256": "c3f62e264057f1048b6e1c1ec367578a9c1768049cde8d2579efb9f2e1db9514"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/mul_mat_q_type12.ncu-rep",
+      "bytes": 2780919,
+      "sha256": "12ac663678e5ce391d8cf095f23206dfac007de611a6dcc40db07f4c1206b2a7"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/mul_mat_q_type8.csv",
+      "bytes": 36214,
+      "sha256": "edefe12ed647c13754ca7be7aa07bd2dfc57add6dcd395c4b110ce40c3f8ecda"
+    },
+    {
+      "path": "results/ncu-hotspots-v1/mul_mat_q_type8.ncu-rep",
+      "bytes": 2508551,
+      "sha256": "e4ffb25edd868d593f702e2dc5beb2f3dee9dd7d7367f3048f6aed846d681b68"
+    },
+    {
+      "path": "results/nsys-season-001-v1/cuda_api_sum.csv",
+      "bytes": 2879,
+      "sha256": "82986f362d5f6619b422b737a6e3841f38be1da905f7c8a9e8504a960370c084"
+    },
+    {
+      "path": "results/nsys-season-001-v1/cuda_api_summary_clean.csv",
+      "bytes": 1723,
+      "sha256": "5bec221f1b695e159628905ab7c2505274038dac35936aea483b967f2bf3f6de"
+    },
+    {
+      "path": "results/nsys-season-001-v1/cuda_api_trace.csv",
+      "bytes": 551780,
+      "sha256": "6f537a71c5fac632f6749de36bd1f31fbe9ffc0530db0767053237a0b1417344"
+    },
+    {
+      "path": "results/nsys-season-001-v1/cuda_gpu_kern_gb_sum.csv",
+      "bytes": 52075,
+      "sha256": "12d0d6796a5cecc517f4651bdbd46a79983504dd12b22e3fd9fb542956031d93"
+    },
+    {
+      "path": "results/nsys-season-001-v1/cuda_gpu_kern_sum.csv",
+      "bytes": 12109,
+      "sha256": "92e2a355fbb62f98eb7ae11718a7ace5b12e0dedc86c18f29934a7b5e9d4c2b6"
+    },
+    {
+      "path": "results/nsys-season-001-v1/cuda_gpu_mem_size_sum.csv",
+      "bytes": 808,
+      "sha256": "525bedda21624224643714b82ae2a7de8a5b8388c35d9b656783164fbb136330"
+    },
+    {
+      "path": "results/nsys-season-001-v1/cuda_gpu_mem_time_sum.csv",
+      "bytes": 853,
+      "sha256": "8b31fbf73ed27857e4e86f679609a81de03806daa1f74a3d5919df528985dfe3"
+    },
+    {
+      "path": "results/nsys-season-001-v1/cuda_gpu_trace.csv",
+      "bytes": 2188216,
+      "sha256": "39ac4752b64fc29c7255d6af63a1c8fd7f534c65f79fcfca2814e3daa8eb7ab3"
+    },
+    {
+      "path": "results/nsys-season-001-v1/cuda_kern_exec_sum.csv",
+      "bytes": 20633,
+      "sha256": "81fe1c0e7de97abf1a662e1c744645fe45b3ac8c43a6a4bc829c21eab6558beb"
+    },
+    {
+      "path": "results/nsys-season-001-v1/kernel_summary_clean.csv",
+      "bytes": 11738,
+      "sha256": "2c90b21587d36192c9b3869612a75e6d69c6b01498743821fbbbf02847dc6716"
+    },
+    {
+      "path": "results/nsys-season-001-v1/memory_size_summary_clean.csv",
+      "bytes": 245,
+      "sha256": "bcd721c3ee5232ba32ed015035264021c8c037d60a0705ff01477cff13fcbaf1"
+    },
+    {
+      "path": "results/nsys-season-001-v1/memory_time_summary_clean.csv",
+      "bytes": 267,
+      "sha256": "cb3e29d8a5694e3c82d75622163725d93cd07f55e6c84e24af00198dd24977bd"
+    },
+    {
+      "path": "results/nsys-season-001-v1/metadata.json",
+      "bytes": 910,
+      "sha256": "2bbb88b54dbe17652540cd8942643a70c41ee6ab24177206b3c75d1a146d8ca1"
+    },
+    {
+      "path": "results/nsys-season-001-v1/metrics/gpu_metrics_downsampled.csv",
+      "bytes": 2212573,
+      "sha256": "b0fd0e2ef9961e806219aaf3c22ef237bb604d6322bf2d8591be044fd335201c"
+    },
+    {
+      "path": "results/nsys-season-001-v1/metrics/gpu_metrics_summary.csv",
+      "bytes": 2790,
+      "sha256": "dd7d27e6f36a053b7cd417d8881b9443c1b3d44fedda439896f85f43fa9fc310"
+    },
+    {
+      "path": "results/nsys-season-001-v1/metrics/gpu_profile_info.json",
+      "bytes": 1390,
+      "sha256": "72f9598dac39b6ad172ce83f6d921f47a3bcd469ae846174c0ba8ae9161f77e3"
+    },
+    {
+      "path": "results/nsys-season-001-v1/nsys_summary.json",
+      "bytes": 440,
+      "sha256": "841212ed9dacb284cfc76ae7641ec4d31f7ae364668680c45aedba87a7422432"
+    },
+    {
+      "path": "results/nsys-season-001-v1/sqlite_schema.json",
+      "bytes": 36723,
+      "sha256": "45c94669538b36ccecd8b34c98a4b059612fa120ceb6bd7bf38b8b88928c5d9c"
+    },
+    {
+      "path": "results/nsys-season-001-v1/trace.nsys-rep",
+      "bytes": 3297418,
+      "sha256": "179d5f0abaefe96ba74523e40dfd0408bc1c247c5d874e51c46b6c986323c7d0"
+    },
+    {
+      "path": "results/stage_summary.csv",
+      "bytes": 290,
+      "sha256": "be01180b7bea8604982e484103d3a0e6bee2f1f3cb79e1f9580dfdb7c616f936"
+    }
+  ]
+}

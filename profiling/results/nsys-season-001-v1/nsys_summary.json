@@ -1,0 +1,13 @@
+{
+  "kernel_count": 6215,
+  "unique_kernel_count": 54,
+  "kernel_window_ms": 6170.112269,
+  "summed_kernel_time_ms": 2501.3651669999986,
+  "summed_memory_operation_time_ms": 608.34837,
+  "kernel_duty_percent": 40.54002679282526,
+  "gpu_operation_duty_percent": 50.399626480443196,
+  "estimated_non_gpu_operation_gap_ms": 3060.3987320000015,
+  "h2d_total_mb": 7722.64,
+  "h2d_total_time_ms": 589.57359,
+  "top_10_kernel_time_percent": 88.3
+}

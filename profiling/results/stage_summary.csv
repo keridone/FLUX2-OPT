@@ -1,0 +1,7 @@
+stage,median_seconds,share_internal_generation_percent,share_wall_percent
+reference_image_encode,0.54,8.5714,7.6755
+text_conditioning,1.42,22.5397,20.1837
+sampling,3.80,60.3175,54.0126
+vae_decode,0.54,8.5714,7.6755
+internal_generation,6.30,100.0000,89.5470
+end_to_end_wall,7.0354,,100.0000
