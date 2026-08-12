@@ -1,0 +1,23 @@
+{
+  "captured_at": "2026-08-12T10:01:56+0800",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "python": "3.13.13",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti, 581.57, 16311 MiB",
+  "runtime_version": "stable-diffusion.cpp version unknown, commit bfbef5b",
+  "hashes": {
+    "runtime": "859453e06643d7a78f5c874d863c25065b0c39343f9556163bcdf8086be13303",
+    "diffusion_model": "0bba6951258ec8f92d51114a8fa13e66828297bfff58a738f52729b3ef66fa28",
+    "text_encoder": "f6f851777709861056efcdad3af01da38b31223a3ba26e61a4f8bf3a2195813a",
+    "vae": "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5",
+    "manifest": "cee5806e87afcb2c1e2459fad23d839f1db310070c58ecc641b4fbf3cb264e55",
+    "benchmark_script": "626e42d94431e75fd2814cd387d3423777ad19952c9465865516d9b7d5dc6eb5"
+  },
+  "settings": {
+    "steps": 4,
+    "cfg_scale": 1.0,
+    "sampler": "euler",
+    "rng": "cuda",
+    "diffusion_flash_attention": true,
+    "cpu_offload": false
+  }
+}

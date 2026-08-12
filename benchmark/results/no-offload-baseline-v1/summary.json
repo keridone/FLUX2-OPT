@@ -1,0 +1,71 @@
+{
+  "sample_count": 60,
+  "metrics": {
+    "wall_seconds": {
+      "median": 5.8415,
+      "p95": 5.874,
+      "min": 5.8166,
+      "max": 5.9541
+    },
+    "reference_encode_seconds": {
+      "median": 0.52,
+      "p95": 0.53,
+      "min": 0.51,
+      "max": 0.54
+    },
+    "conditioning_seconds": {
+      "median": 1.16,
+      "p95": 1.18,
+      "min": 1.13,
+      "max": 1.18
+    },
+    "sampling_seconds": {
+      "median": 3.17,
+      "p95": 3.1705,
+      "min": 3.16,
+      "max": 3.18
+    },
+    "decode_seconds": {
+      "median": 0.51,
+      "p95": 0.52,
+      "min": 0.5,
+      "max": 0.52
+    },
+    "generation_seconds": {
+      "median": 5.36,
+      "p95": 5.39,
+      "min": 5.33,
+      "max": 5.4
+    },
+    "peak_gpu_mib": {
+      "median": 10725.0,
+      "p95": 10732.05,
+      "min": 10660.0,
+      "max": 10735.0
+    },
+    "peak_gpu_utilization_percent": {
+      "median": 100.0,
+      "p95": 100.0,
+      "min": 90.0,
+      "max": 100.0
+    },
+    "peak_process_rss_mib": {
+      "median": 2455.3164,
+      "p95": 2503.1971,
+      "min": 2339.2969,
+      "max": 2510.6641
+    }
+  },
+  "categories": {
+    "season": {
+      "count": 30,
+      "wall_seconds_median": 5.8391,
+      "wall_seconds_p95": 5.8645
+    },
+    "weather": {
+      "count": 30,
+      "wall_seconds_median": 5.8486,
+      "wall_seconds_p95": 5.8807
+    }
+  }
+}

@@ -27,6 +27,7 @@ VAE = SD_ROOT / "models" / "split_files" / "vae" / "flux2-vae.safetensors"
 CUDA_RUNTIME = REMOTE_ROOT / ".venv" / "Lib" / "site-packages" / "nvidia" / "cuda_runtime" / "bin"
 CUBLAS = REMOTE_ROOT / ".venv" / "Lib" / "site-packages" / "nvidia" / "cublas" / "bin"
 BENCHMARK_ROOT = REMOTE_ROOT / "benchmark"
+CPU_OFFLOAD = True
 ANSI_RE = re.compile(r"\x1b\[[0-9;]*[A-Za-z]")
 
 TIMING_PATTERNS = {
@@ -156,7 +157,7 @@ def run_sd(command: list[str], log_path: Path) -> dict[str, object]:
 
 
 def base_command(width: int, height: int, seed: int, output: Path, prompt: str) -> list[str]:
-    return [
+    command = [
         str(SD_CLI),
         "--diffusion-model", str(MODEL),
         "--vae", str(VAE),
@@ -169,10 +170,12 @@ def base_command(width: int, height: int, seed: int, output: Path, prompt: str) 
         "--cfg-scale", "1.0",
         "--sampling-method", "euler",
         "--diffusion-fa",
-        "--offload-to-cpu",
         "--seed", str(seed),
         "--verbose",
     ]
+    if CPU_OFFLOAD:
+        command.append("--offload-to-cpu")
+    return command
 
 
 def capture_environment(manifest_path: Path) -> dict[str, object]:
@@ -212,7 +215,7 @@ def capture_environment(manifest_path: Path) -> dict[str, object]:
             "sampler": "euler",
             "rng": "cuda",
             "diffusion_flash_attention": True,
-            "cpu_offload": True,
+            "cpu_offload": CPU_OFFLOAD,
         },
     }
 
@@ -350,11 +353,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--mode", choices=["prepare", "baseline", "all"], default="all")
     parser.add_argument("--repeats", type=int, default=3)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--no-cpu-offload", action="store_true")
     return parser.parse_args()
 
 
 def main() -> None:
+    global CPU_OFFLOAD
     args = parse_args()
+    CPU_OFFLOAD = not args.no_cpu_offload
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     tasks = manifest["tasks"]
     width, height = manifest["resolution"]

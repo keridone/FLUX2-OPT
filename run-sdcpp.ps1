@@ -25,7 +25,6 @@ $env:PATH = "$CudaRuntime;$CuBlas;$env:PATH"
     --cfg-scale 1.0 `
     --sampling-method euler `
     --diffusion-fa `
-    --offload-to-cpu `
     --seed $Seed
 
 if ($LASTEXITCODE -ne 0) {

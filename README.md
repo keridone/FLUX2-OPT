@@ -12,7 +12,8 @@ FLUX.2 Klein 4B inference deployment and performance optimization for
 - VAE: FLUX.2 VAE
 - Inference: Euler, 4 steps, CFG 1.0, diffusion Flash Attention
 - 512 x 512 text-to-image reference: about 5.2 seconds end to end
-- 512 x 512 image-edit baseline: 7.0354 seconds median, 7.0760 seconds P95
+- 512 x 512 image-edit baseline with CPU offload: 7.0354 seconds median
+- 512 x 512 image-edit baseline without CPU offload: 5.8415 seconds median
 
 Model weights and generated images are intentionally excluded from Git.
 
@@ -52,6 +53,9 @@ powershell -ExecutionPolicy Bypass -File E:\flux\run-sdcpp.ps1 `
 
 The launcher adds the CUDA 12 runtime and cuBLAS DLL directories installed in
 the project virtual environment to `PATH` before invoking `sd-cli.exe`.
+Model weights are GPU-resident by default. On lower-memory devices, use
+module-level placement such as `--backend te=cpu` before falling back to the
+more expensive `--offload-to-cpu` mode.
 
 ## Optimization workflow
 
