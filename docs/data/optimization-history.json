@@ -1,0 +1,90 @@
+{
+  "project": "FLUX.2 Optimization Log",
+  "updatedAt": "2026-08-16",
+  "benchmark": {
+    "model": "FLUX.2 Klein 4B Q8_0",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti 16 GB",
+    "workload": "20 season & weather edits × 3 runs",
+    "resolution": "512 × 512",
+    "qualityGate": "17 / 20 all criteria passed"
+  },
+  "nodes": [
+    {
+      "id": "baseline-offload",
+      "sequence": 1,
+      "date": "2026-08-11",
+      "label": "固定基线",
+      "version": "baseline-bfbef5b-q8-v1",
+      "method": "CPU Offload",
+      "headline": "建立可重复的编辑性能基线",
+      "summary": "固定模型、任务、随机种子和推理参数，将全部权重置于 RAM 并按阶段搬运到 GPU。",
+      "details": [
+        "20 个季节/天气编辑任务，每个重复 3 次",
+        "Euler 采样、4 steps、CFG 1.0、512 × 512",
+        "启用 Diffusion Flash Attention 与 CPU offload",
+        "保存运行环境、模型、输入和输出 SHA-256"
+      ],
+      "metrics": {
+        "medianSeconds": 7.0354,
+        "p95Seconds": 7.076,
+        "generationSeconds": 6.3,
+        "samplingSeconds": 3.8,
+        "conditioningSeconds": 1.42,
+        "peakVramMiB": 6748,
+        "peakRamMiB": 8125,
+        "qualityPassPercent": 85
+      },
+      "gainPercent": 0,
+      "status": "baseline",
+      "links": [
+        { "label": "基线报告", "href": "https://github.com/keridone/FLUX2-OPT/tree/main/benchmark/results/baseline-bfbef5b-q8-v1" },
+        { "label": "完整指标", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/benchmark/results/baseline-bfbef5b-q8-v1/summary.json" },
+        { "label": "评测协议", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/benchmark/PROTOCOL.md" }
+      ]
+    },
+    {
+      "id": "no-cpu-offload",
+      "sequence": 2,
+      "date": "2026-08-12",
+      "label": "优化 01",
+      "version": "no-offload-baseline-v1",
+      "method": "Full GPU Residency",
+      "headline": "关闭 CPU offload，让模型权重驻留 GPU",
+      "summary": "利用显存余量移除动态权重搬运，降低 H2D 传输、同步等待和主机内存占用。",
+      "details": [
+        "移除 --offload-to-cpu，7,821 MB 参数驻留 VRAM",
+        "正式完成相同 20 个任务、60 次测量",
+        "端到端中位数降低 1.1939 秒",
+        "20 个首轮输出哈希完全一致，质量零回退"
+      ],
+      "metrics": {
+        "medianSeconds": 5.8415,
+        "p95Seconds": 5.874,
+        "generationSeconds": 5.36,
+        "samplingSeconds": 3.17,
+        "conditioningSeconds": 1.16,
+        "peakVramMiB": 10725,
+        "peakRamMiB": 2455,
+        "qualityPassPercent": 85
+      },
+      "gainPercent": 16.97,
+      "status": "current",
+      "links": [
+        { "label": "优化报告", "href": "https://github.com/keridone/FLUX2-OPT/tree/main/benchmark/results/no-offload-baseline-v1" },
+        { "label": "完整指标", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/benchmark/results/no-offload-baseline-v1/summary.json" },
+        { "label": "实现提交", "href": "https://github.com/keridone/FLUX2-OPT/commit/c65db8b" }
+      ]
+    }
+  ],
+  "bottlenecks": [
+    { "name": "Q8 矩阵乘", "share": 36.0, "type": "低占用率 / 计算延迟", "tone": "violet" },
+    { "name": "Flash Attention", "share": 13.8, "type": "寄存器压力 / 低占用率", "tone": "cyan" },
+    { "name": "im2col", "share": 8.5, "type": "计算吞吐", "tone": "amber" },
+    { "name": "复制与逐元素算子", "share": 20.5, "type": "带宽与启动开销", "tone": "green" }
+  ],
+  "roadmap": [
+    { "rank": "01", "title": "优化 Q8 GEMM", "text": "降低寄存器与共享内存压力，针对 Blackwell / SM 12.0 调整 tile。" },
+    { "rank": "02", "title": "调整 Flash Attention", "text": "测试更高 occupancy 的 kernel 变体与 tile 配置。" },
+    { "rank": "03", "title": "算子融合", "text": "融合 add、multiply、norm 与 copy 链，减少中间张量和 kernel 启动。" }
+  ]
+}

@@ -3,6 +3,13 @@
 FLUX.2 Klein 4B inference deployment and performance optimization for
 `stable-diffusion.cpp` on Windows with NVIDIA CUDA.
 
+## Performance dashboard
+
+The continuously updated optimization history is published at
+[keridone.github.io/FLUX2-OPT](https://keridone.github.io/FLUX2-OPT/). To add a
+new chart node and detail card, append one entry to
+[`docs/data/optimization-history.json`](docs/data/optimization-history.json).
+
 ## Current baseline
 
 - GPU: NVIDIA GeForce RTX 5060 Ti 16 GB
