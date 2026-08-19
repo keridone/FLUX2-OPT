@@ -1,0 +1,164 @@
+[
+  {
+    "mode": "sequential_two_processes",
+    "repeat": 1,
+    "wall_seconds": 12.2753,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10682.0,
+    "output_hashes": [
+      "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5",
+      "70afeab3079d98e185b06d2bc064db6f7797edb08d848bce5c785e14ef5ab32b"
+    ]
+  },
+  {
+    "mode": "single_process_batch_count_2",
+    "repeat": 1,
+    "wall_seconds": 8.8105,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10683.0,
+    "peak_gpu_processes": 34,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ],
+    "output_hashes": [
+      "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5",
+      "2d8948eb0645cba26f3ae9e17d79bab5faa1581af7cd22f3f9781bc450f51e53"
+    ]
+  },
+  {
+    "mode": "concurrent_two_processes",
+    "repeat": 1,
+    "wall_seconds": 13.848,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10686.0,
+    "peak_gpu_processes": 34,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ],
+    "output_hashes": [
+      "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5",
+      "70afeab3079d98e185b06d2bc064db6f7797edb08d848bce5c785e14ef5ab32b"
+    ]
+  },
+  {
+    "mode": "sequential_two_processes",
+    "repeat": 2,
+    "wall_seconds": 12.2969,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10685.0,
+    "output_hashes": [
+      "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5",
+      "70afeab3079d98e185b06d2bc064db6f7797edb08d848bce5c785e14ef5ab32b"
+    ]
+  },
+  {
+    "mode": "single_process_batch_count_2",
+    "repeat": 2,
+    "wall_seconds": 8.7208,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10680.0,
+    "peak_gpu_processes": 34,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ],
+    "output_hashes": [
+      "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5",
+      "2d8948eb0645cba26f3ae9e17d79bab5faa1581af7cd22f3f9781bc450f51e53"
+    ]
+  },
+  {
+    "mode": "concurrent_two_processes",
+    "repeat": 2,
+    "wall_seconds": 14.083,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10681.0,
+    "peak_gpu_processes": 34,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ],
+    "output_hashes": [
+      "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5",
+      "70afeab3079d98e185b06d2bc064db6f7797edb08d848bce5c785e14ef5ab32b"
+    ]
+  },
+  {
+    "mode": "sequential_two_processes",
+    "repeat": 3,
+    "wall_seconds": 12.2172,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10683.0,
+    "output_hashes": [
+      "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5",
+      "70afeab3079d98e185b06d2bc064db6f7797edb08d848bce5c785e14ef5ab32b"
+    ]
+  },
+  {
+    "mode": "single_process_batch_count_2",
+    "repeat": 3,
+    "wall_seconds": 8.7397,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10673.0,
+    "peak_gpu_processes": 34,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ],
+    "output_hashes": [
+      "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5",
+      "2d8948eb0645cba26f3ae9e17d79bab5faa1581af7cd22f3f9781bc450f51e53"
+    ]
+  },
+  {
+    "mode": "concurrent_two_processes",
+    "repeat": 3,
+    "wall_seconds": 13.7605,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10699.0,
+    "peak_gpu_processes": 34,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ],
+    "output_hashes": [
+      "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5",
+      "70afeab3079d98e185b06d2bc064db6f7797edb08d848bce5c785e14ef5ab32b"
+    ]
+  }
+]

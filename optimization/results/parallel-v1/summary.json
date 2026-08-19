@@ -1,0 +1,25 @@
+{
+  "run_id": "parallel-v1",
+  "cpu_offload": false,
+  "repeats": 3,
+  "modes": {
+    "concurrent_two_processes": {
+      "successful_repeats": 3,
+      "wall_seconds_median": 13.848,
+      "throughput_tasks_per_second": 0.1444,
+      "peak_gpu_mib_max": 10699.0
+    },
+    "sequential_two_processes": {
+      "successful_repeats": 3,
+      "wall_seconds_median": 12.2753,
+      "throughput_tasks_per_second": 0.1629,
+      "peak_gpu_mib_max": 10685.0
+    },
+    "single_process_batch_count_2": {
+      "successful_repeats": 3,
+      "wall_seconds_median": 8.7397,
+      "throughput_tasks_per_second": 0.2288,
+      "peak_gpu_mib_max": 10683.0
+    }
+  }
+}

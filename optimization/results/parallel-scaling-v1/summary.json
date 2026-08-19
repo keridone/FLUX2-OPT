@@ -1,0 +1,61 @@
+{
+  "run_id": "parallel-scaling-v1",
+  "cpu_offload": false,
+  "repeats": 3,
+  "cells": [
+    {
+      "family": "single_process_batch",
+      "parallelism": 1,
+      "successful_repeats": 3,
+      "wall_seconds_median": 6.1379,
+      "throughput_tasks_per_second": 0.1629,
+      "mean_seconds_per_task": 6.1379,
+      "peak_gpu_mib_max": 10682.0
+    },
+    {
+      "family": "single_process_batch",
+      "parallelism": 2,
+      "successful_repeats": 3,
+      "wall_seconds_median": 8.6883,
+      "throughput_tasks_per_second": 0.2302,
+      "mean_seconds_per_task": 4.3441,
+      "peak_gpu_mib_max": 10682.0
+    },
+    {
+      "family": "single_process_batch",
+      "parallelism": 4,
+      "successful_repeats": 3,
+      "wall_seconds_median": 13.8473,
+      "throughput_tasks_per_second": 0.2889,
+      "mean_seconds_per_task": 3.4618,
+      "peak_gpu_mib_max": 10693.0
+    },
+    {
+      "family": "independent_processes",
+      "parallelism": 1,
+      "successful_repeats": 3,
+      "wall_seconds_median": 6.1071,
+      "throughput_tasks_per_second": 0.1637,
+      "mean_seconds_per_task": 6.1071,
+      "peak_gpu_mib_max": 10691.0
+    },
+    {
+      "family": "independent_processes",
+      "parallelism": 2,
+      "successful_repeats": 3,
+      "wall_seconds_median": 13.9561,
+      "throughput_tasks_per_second": 0.1433,
+      "mean_seconds_per_task": 6.978,
+      "peak_gpu_mib_max": 10689.0
+    },
+    {
+      "family": "independent_processes",
+      "parallelism": 3,
+      "successful_repeats": 3,
+      "wall_seconds_median": 21.8158,
+      "throughput_tasks_per_second": 0.1375,
+      "mean_seconds_per_task": 7.2719,
+      "peak_gpu_mib_max": 10687.0
+    }
+  ]
+}

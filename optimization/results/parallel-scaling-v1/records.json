@@ -1,0 +1,317 @@
+[
+  {
+    "family": "single_process_batch",
+    "parallelism": 1,
+    "repeat": 1,
+    "wall_seconds": 6.1799,
+    "tasks_completed": 1,
+    "peak_gpu_mib": 10682.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "single_process_batch",
+    "parallelism": 2,
+    "repeat": 1,
+    "wall_seconds": 8.7513,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10679.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "single_process_batch",
+    "parallelism": 4,
+    "repeat": 1,
+    "wall_seconds": 13.841,
+    "tasks_completed": 4,
+    "peak_gpu_mib": 10689.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "independent_processes",
+    "parallelism": 1,
+    "repeat": 1,
+    "wall_seconds": 6.1211,
+    "tasks_completed": 1,
+    "peak_gpu_mib": 10685.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "independent_processes",
+    "parallelism": 2,
+    "repeat": 1,
+    "wall_seconds": 13.7568,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10681.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "independent_processes",
+    "parallelism": 3,
+    "repeat": 1,
+    "wall_seconds": 22.2589,
+    "tasks_completed": 3,
+    "peak_gpu_mib": 10684.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "single_process_batch",
+    "parallelism": 1,
+    "repeat": 2,
+    "wall_seconds": 6.1152,
+    "tasks_completed": 1,
+    "peak_gpu_mib": 10682.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "single_process_batch",
+    "parallelism": 2,
+    "repeat": 2,
+    "wall_seconds": 8.6883,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10678.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "single_process_batch",
+    "parallelism": 4,
+    "repeat": 2,
+    "wall_seconds": 14.1116,
+    "tasks_completed": 4,
+    "peak_gpu_mib": 10693.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "independent_processes",
+    "parallelism": 1,
+    "repeat": 2,
+    "wall_seconds": 6.1071,
+    "tasks_completed": 1,
+    "peak_gpu_mib": 10691.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "independent_processes",
+    "parallelism": 2,
+    "repeat": 2,
+    "wall_seconds": 14.1096,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10689.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "independent_processes",
+    "parallelism": 3,
+    "repeat": 2,
+    "wall_seconds": 21.6615,
+    "tasks_completed": 3,
+    "peak_gpu_mib": 10683.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "single_process_batch",
+    "parallelism": 1,
+    "repeat": 3,
+    "wall_seconds": 6.1379,
+    "tasks_completed": 1,
+    "peak_gpu_mib": 10679.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "single_process_batch",
+    "parallelism": 2,
+    "repeat": 3,
+    "wall_seconds": 8.6554,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10682.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "single_process_batch",
+    "parallelism": 4,
+    "repeat": 3,
+    "wall_seconds": 13.8473,
+    "tasks_completed": 4,
+    "peak_gpu_mib": 10678.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "independent_processes",
+    "parallelism": 1,
+    "repeat": 3,
+    "wall_seconds": 6.0969,
+    "tasks_completed": 1,
+    "peak_gpu_mib": 10673.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "independent_processes",
+    "parallelism": 2,
+    "repeat": 3,
+    "wall_seconds": 13.9561,
+    "tasks_completed": 2,
+    "peak_gpu_mib": 10687.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  },
+  {
+    "family": "independent_processes",
+    "parallelism": 3,
+    "repeat": 3,
+    "wall_seconds": 21.8158,
+    "tasks_completed": 3,
+    "peak_gpu_mib": 10687.0,
+    "processes": [
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      },
+      {
+        "returncode": 0,
+        "cuda_oom": false,
+        "illegal_access": false
+      }
+    ]
+  }
+]
