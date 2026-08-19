@@ -115,3 +115,19 @@ source-built server 的构建产物差异；同一 source-built CLI control 的 
 5.3234 秒，吞吐达到 0.3757 task/s。两项输出哈希与未缓存 source-built control
 完全一致。实验进程稳定占用约 9,183 MiB GPU 显存；latent 缓存在 CPU 所有权
 tensor 中，不增加常驻 GPU tensor。
+
+## 文本条件 LRU 实现
+
+`text-condition-cache-v1` 在 Flux.2 Klein 安全路径上加入容量为 16 的文本条件
+LRU。键包含 prompt、尺寸、`clip_skip`、mask 和参考图条件参数；向 VLM 传图的
+路径不启用缓存。缓存保存 `c_concat` 注入前的编码器输出，因此相同 prompt 配置
+不同参考图不会串用图像条件。
+
+双缓存命中时单任务中位延迟为 2.5161 秒，相对仅有参考图缓存的 2.6968 秒再降
+6.70%。热点两任务对中位耗时为 4.9427 秒，吞吐为 0.4046 task/s，输出哈希与
+未缓存 control 完全一致。三种 prompt/参考图组合均跨两轮确定。
+
+20×3 全集回归 60/60 成功，中位延迟 2.7591 秒，P95 2.7927 秒，GPU 显存范围
+8,928–8,954 MiB。20 个唯一 prompt 顺序扫描会超过容量 16 并产生预期逐出，
+因此该测试主要覆盖 miss/eviction 安全性。满容量文本缓存占 240 MiB CPU 内存，
+进程工作集约 1,221.6 MiB；未增加常驻 GPU 缓存。

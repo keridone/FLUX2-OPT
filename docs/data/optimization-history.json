@@ -135,10 +135,44 @@
         "qualityPassPercent": 100
       },
       "gainPercent": 53.82,
-      "status": "current",
+      "status": "accepted",
       "links": [
         { "label": "实现补丁", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/patches/ref-latent-cache-v1.patch" },
         { "label": "缓存指标", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/results/ref-latent-cache-v1/cache-summary.json" },
+        { "label": "实现与报告", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/PARALLEL_INFERENCE_REPORT.md" }
+      ]
+    },
+    {
+      "id": "text-condition-cache",
+      "sequence": 5,
+      "date": "2026-08-19",
+      "label": "优化 04",
+      "version": "text-condition-cache-v1",
+      "method": "Bounded Text Condition LRU",
+      "headline": "跨请求复用 Flux.2 文本条件编码",
+      "summary": "在参考图 latent 缓存之上加入容量为 16 的文本条件 LRU，缓存请求专属 c_concat 注入前的编码器输出。",
+      "details": [
+        "双缓存命中中位延迟由 2.6968 秒降至 2.5161 秒",
+        "热点两任务对吞吐提高至 0.4046 task/s",
+        "20×3 回归 60/60 成功，跨重复输出确定",
+        "满容量占 240 MiB CPU 内存，不增加常驻 GPU 缓存"
+      ],
+      "metrics": {
+        "medianSeconds": 2.5161,
+        "p95Seconds": 2.5325,
+        "generationSeconds": 2.39,
+        "samplingSeconds": 2.0,
+        "conditioningSeconds": 0.0,
+        "peakVramMiB": 8954,
+        "peakRamMiB": 1222,
+        "qualityPassPercent": 100
+      },
+      "gainPercent": 56.92,
+      "status": "current",
+      "links": [
+        { "label": "实现补丁", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/patches/text-condition-cache-v1.patch" },
+        { "label": "缓存指标", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/results/text-condition-cache-v1/cache-summary.json" },
+        { "label": "60 次回归", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/results/text-condition-cache-v1/suite-summary.json" },
         { "label": "实现与报告", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/PARALLEL_INFERENCE_REPORT.md" }
       ]
     }

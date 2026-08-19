@@ -1,0 +1,62 @@
+{
+  "run_id": "text-condition-cache-v1",
+  "cases_per_group": 5,
+  "rounds": 2,
+  "groups": {
+    "same_prompt_same_reference": {
+      "cold_or_mixed": {
+        "runs": 5,
+        "median_seconds": 2.5099,
+        "mean_seconds": 3.147,
+        "min_seconds": 2.4952,
+        "max_seconds": 5.6883
+      },
+      "warm": {
+        "runs": 5,
+        "median_seconds": 2.5161,
+        "mean_seconds": 2.512,
+        "min_seconds": 2.4923,
+        "max_seconds": 2.536
+      }
+    },
+    "same_prompt_different_reference": {
+      "cold_or_mixed": {
+        "runs": 5,
+        "median_seconds": 2.638,
+        "mean_seconds": 2.6337,
+        "min_seconds": 2.5219,
+        "max_seconds": 2.6986
+      },
+      "warm": {
+        "runs": 5,
+        "median_seconds": 2.5089,
+        "mean_seconds": 2.5084,
+        "min_seconds": 2.4914,
+        "max_seconds": 2.5291
+      }
+    },
+    "different_prompt_same_reference": {
+      "cold_or_mixed": {
+        "runs": 5,
+        "median_seconds": 2.5916,
+        "mean_seconds": 2.5849,
+        "min_seconds": 2.5486,
+        "max_seconds": 2.6138
+      },
+      "warm": {
+        "runs": 5,
+        "median_seconds": 2.5147,
+        "mean_seconds": 2.5106,
+        "min_seconds": 2.4889,
+        "max_seconds": 2.5234
+      }
+    }
+  },
+  "deterministic_across_rounds": true,
+  "cache_capacity": 16,
+  "cache_bytes_at_capacity": 251658240,
+  "working_set_mib_at_capacity": 1221.6,
+  "observed_hits": 37,
+  "observed_misses": 61,
+  "observed_evictions": 45
+}

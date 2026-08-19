@@ -1,0 +1,272 @@
+[
+  {
+    "group": "same_prompt_same_reference",
+    "case": 1,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 5.6883,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_same_reference",
+    "case": 2,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.4952,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_same_reference",
+    "case": 3,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5374,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_same_reference",
+    "case": 4,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5041,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_same_reference",
+    "case": 5,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5099,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_same_reference",
+    "case": 1,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.497,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_same_reference",
+    "case": 2,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.4923,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_same_reference",
+    "case": 3,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5187,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_same_reference",
+    "case": 4,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5161,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_same_reference",
+    "case": 5,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.536,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_different_reference",
+    "case": 1,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5219,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_different_reference",
+    "case": 2,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_002_autumn_lake",
+    "wall_seconds": 2.6307,
+    "output_sha256": "01fe06298817774e0736dc55a840cd226dd45dd66ed909efa806da85493bdc01"
+  },
+  {
+    "group": "same_prompt_different_reference",
+    "case": 3,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_003_spring_village",
+    "wall_seconds": 2.6793,
+    "output_sha256": "b251206c07b23a03d437c6b2bef49bf1a8e69cb256530945f25fa72be7183b4e"
+  },
+  {
+    "group": "same_prompt_different_reference",
+    "case": 4,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_004_summer_temple",
+    "wall_seconds": 2.6986,
+    "output_sha256": "0e0045507348497822235b632fa7860eec76309de647a4770d07126c33ca1b71"
+  },
+  {
+    "group": "same_prompt_different_reference",
+    "case": 5,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_005_winter_farm",
+    "wall_seconds": 2.638,
+    "output_sha256": "99b802abb418b6fae48b2e660e985a8fca5e7295814ffa67340748151df4f479"
+  },
+  {
+    "group": "same_prompt_different_reference",
+    "case": 1,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5291,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "same_prompt_different_reference",
+    "case": 2,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_002_autumn_lake",
+    "wall_seconds": 2.4914,
+    "output_sha256": "01fe06298817774e0736dc55a840cd226dd45dd66ed909efa806da85493bdc01"
+  },
+  {
+    "group": "same_prompt_different_reference",
+    "case": 3,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_003_spring_village",
+    "wall_seconds": 2.5089,
+    "output_sha256": "b251206c07b23a03d437c6b2bef49bf1a8e69cb256530945f25fa72be7183b4e"
+  },
+  {
+    "group": "same_prompt_different_reference",
+    "case": 4,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_004_summer_temple",
+    "wall_seconds": 2.5149,
+    "output_sha256": "0e0045507348497822235b632fa7860eec76309de647a4770d07126c33ca1b71"
+  },
+  {
+    "group": "same_prompt_different_reference",
+    "case": 5,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_005_winter_farm",
+    "wall_seconds": 2.4975,
+    "output_sha256": "99b802abb418b6fae48b2e660e985a8fca5e7295814ffa67340748151df4f479"
+  },
+  {
+    "group": "different_prompt_same_reference",
+    "case": 1,
+    "round": 1,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5486,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "different_prompt_same_reference",
+    "case": 2,
+    "round": 1,
+    "prompt_task_id": "season_002_autumn_lake",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5916,
+    "output_sha256": "71453fd2e0df6b5ec772cd3a6c89062b072ef9272f4d4041dff27c03a1ba23e5"
+  },
+  {
+    "group": "different_prompt_same_reference",
+    "case": 3,
+    "round": 1,
+    "prompt_task_id": "season_003_spring_village",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5972,
+    "output_sha256": "27f65005cfcf49b42d9c0358569b33ee04d50d1eb70082e3428f59f21b22dcdf"
+  },
+  {
+    "group": "different_prompt_same_reference",
+    "case": 4,
+    "round": 1,
+    "prompt_task_id": "season_004_summer_temple",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.6138,
+    "output_sha256": "cb76c43888c56d3de8e3a18866f39fc2dd5b785492724b333acbb05abe0b5aeb"
+  },
+  {
+    "group": "different_prompt_same_reference",
+    "case": 5,
+    "round": 1,
+    "prompt_task_id": "season_005_winter_farm",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5735,
+    "output_sha256": "d7c2f452c985b8204a928aac31bbb739cb9682e5e9a5be6e9c23fae7535470bd"
+  },
+  {
+    "group": "different_prompt_same_reference",
+    "case": 1,
+    "round": 2,
+    "prompt_task_id": "season_001_winter_city",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5147,
+    "output_sha256": "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+  },
+  {
+    "group": "different_prompt_same_reference",
+    "case": 2,
+    "round": 2,
+    "prompt_task_id": "season_002_autumn_lake",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5104,
+    "output_sha256": "71453fd2e0df6b5ec772cd3a6c89062b072ef9272f4d4041dff27c03a1ba23e5"
+  },
+  {
+    "group": "different_prompt_same_reference",
+    "case": 3,
+    "round": 2,
+    "prompt_task_id": "season_003_spring_village",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5234,
+    "output_sha256": "27f65005cfcf49b42d9c0358569b33ee04d50d1eb70082e3428f59f21b22dcdf"
+  },
+  {
+    "group": "different_prompt_same_reference",
+    "case": 4,
+    "round": 2,
+    "prompt_task_id": "season_004_summer_temple",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.4889,
+    "output_sha256": "cb76c43888c56d3de8e3a18866f39fc2dd5b785492724b333acbb05abe0b5aeb"
+  },
+  {
+    "group": "different_prompt_same_reference",
+    "case": 5,
+    "round": 2,
+    "prompt_task_id": "season_005_winter_farm",
+    "reference_task_id": "season_001_winter_city",
+    "wall_seconds": 2.5154,
+    "output_sha256": "d7c2f452c985b8204a928aac31bbb739cb9682e5e9a5be6e9c23fae7535470bd"
+  }
+]

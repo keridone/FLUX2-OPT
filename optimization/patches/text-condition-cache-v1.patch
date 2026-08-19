@@ -1,0 +1,312 @@
+diff --git a/src/stable-diffusion.cpp b/src/stable-diffusion.cpp
+index f2b69cc..bb9e8d4 100644
+--- a/src/stable-diffusion.cpp
++++ b/src/stable-diffusion.cpp
+@@ -1,6 +1,7 @@
+ #include <algorithm>
+ #include <cmath>
+ #include <cstdlib>
++#include <new>
+ #include <set>
+ #include <type_traits>
+ #include <unordered_set>
+@@ -3808,10 +3809,198 @@ void sd_vid_gen_params_init(sd_vid_gen_params_t* sd_vid_gen_params) {
+     sd_cache_params_init(&sd_vid_gen_params->cache);
+ }
+ 
++struct RefLatentCacheEntry {
++    uint64_t key = 0;
++    sd::Tensor<float> latent;
++    uint64_t last_used = 0;
++};
++
++struct TextConditionCacheEntry {
++    uint64_t key = 0;
++    SDCondition condition;
++    uint64_t last_used = 0;
++    size_t bytes = 0;
++};
++
+ struct sd_ctx_t {
+     StableDiffusionGGML* sd = nullptr;
++    std::vector<RefLatentCacheEntry> ref_latent_cache;
++    uint64_t ref_latent_cache_clock     = 0;
++    uint64_t ref_latent_cache_hits      = 0;
++    uint64_t ref_latent_cache_misses    = 0;
++    uint64_t ref_latent_cache_evictions = 0;
++    std::vector<TextConditionCacheEntry> text_condition_cache;
++    uint64_t text_condition_cache_clock     = 0;
++    uint64_t text_condition_cache_hits      = 0;
++    uint64_t text_condition_cache_misses    = 0;
++    uint64_t text_condition_cache_evictions = 0;
+ };
+ 
++static constexpr size_t REF_LATENT_CACHE_CAPACITY = 8;
++static constexpr size_t TEXT_CONDITION_CACHE_CAPACITY = 16;
++
++static uint64_t ref_latent_cache_hash_bytes(uint64_t hash, const void* data, size_t size) {
++    const uint8_t* bytes = static_cast<const uint8_t*>(data);
++    for (size_t i = 0; i < size; ++i) {
++        hash ^= bytes[i];
++        hash *= UINT64_C(1099511628211);
++    }
++    return hash;
++}
++
++template <typename T>
++static uint64_t ref_latent_cache_hash_value(uint64_t hash, const T& value) {
++    return ref_latent_cache_hash_bytes(hash, &value, sizeof(value));
++}
++
++static uint64_t ref_latent_cache_key(const sd_image_t& image,
++                                     int target_width,
++                                     int target_height,
++                                     const RefImageParams& params) {
++    uint64_t hash = UINT64_C(14695981039346656037);
++    hash          = ref_latent_cache_hash_value(hash, image.width);
++    hash          = ref_latent_cache_hash_value(hash, image.height);
++    hash          = ref_latent_cache_hash_value(hash, image.channel);
++    hash          = ref_latent_cache_hash_value(hash, target_width);
++    hash          = ref_latent_cache_hash_value(hash, target_height);
++    hash          = ref_latent_cache_hash_value(hash, params.resize_before_vae);
++    hash          = ref_latent_cache_hash_value(hash, params.resize_vae_to_target);
++    hash          = ref_latent_cache_hash_value(hash, params.vae_input_max_pixels);
++    const size_t image_bytes = static_cast<size_t>(image.width) * image.height * image.channel;
++    return ref_latent_cache_hash_bytes(hash, image.data, image_bytes);
++}
++
++static bool ref_latent_cache_get(sd_ctx_t* ctx, uint64_t key, sd::Tensor<float>* latent) {
++    ++ctx->ref_latent_cache_clock;
++    for (auto& entry : ctx->ref_latent_cache) {
++        if (entry.key == key) {
++            entry.last_used = ctx->ref_latent_cache_clock;
++            *latent         = entry.latent;
++            ++ctx->ref_latent_cache_hits;
++            LOG_INFO("ref latent cache hit (hits=%" PRIu64 ", misses=%" PRIu64 ", size=%zu/%zu)",
++                     ctx->ref_latent_cache_hits,
++                     ctx->ref_latent_cache_misses,
++                     ctx->ref_latent_cache.size(),
++                     REF_LATENT_CACHE_CAPACITY);
++            return true;
++        }
++    }
++    ++ctx->ref_latent_cache_misses;
++    return false;
++}
++
++static void ref_latent_cache_put(sd_ctx_t* ctx, uint64_t key, const sd::Tensor<float>& latent) {
++    if (REF_LATENT_CACHE_CAPACITY == 0 || latent.empty()) {
++        return;
++    }
++    if (ctx->ref_latent_cache.size() >= REF_LATENT_CACHE_CAPACITY) {
++        auto oldest = std::min_element(ctx->ref_latent_cache.begin(),
++                                       ctx->ref_latent_cache.end(),
++                                       [](const RefLatentCacheEntry& a, const RefLatentCacheEntry& b) {
++                                           return a.last_used < b.last_used;
++                                       });
++        ctx->ref_latent_cache.erase(oldest);
++        ++ctx->ref_latent_cache_evictions;
++    }
++    ctx->ref_latent_cache.push_back({key, latent, ++ctx->ref_latent_cache_clock});
++    LOG_INFO("ref latent cache store (size=%zu/%zu, evictions=%" PRIu64 ")",
++             ctx->ref_latent_cache.size(),
++             REF_LATENT_CACHE_CAPACITY,
++             ctx->ref_latent_cache_evictions);
++}
++
++template <typename T>
++static size_t text_condition_tensor_bytes(const sd::Tensor<T>& tensor) {
++    return static_cast<size_t>(tensor.numel()) * sizeof(T);
++}
++
++static size_t text_condition_bytes(const SDCondition& condition) {
++    size_t bytes = text_condition_tensor_bytes(condition.c_crossattn) +
++                   text_condition_tensor_bytes(condition.c_vector) +
++                   text_condition_tensor_bytes(condition.c_concat) +
++                   text_condition_tensor_bytes(condition.c_t5_ids) +
++                   text_condition_tensor_bytes(condition.c_t5_weights) +
++                   text_condition_tensor_bytes(condition.c_input_ids) +
++                   text_condition_tensor_bytes(condition.c_position_ids) +
++                   text_condition_tensor_bytes(condition.c_token_types) +
++                   text_condition_tensor_bytes(condition.c_vinput_mask);
++    for (const auto& item : condition.c_image_embeds) bytes += text_condition_tensor_bytes(item.second);
++    for (const auto& tensor : condition.c_ref_images) bytes += text_condition_tensor_bytes(tensor);
++    for (const auto& tensor : condition.c_ref_audios) bytes += text_condition_tensor_bytes(tensor);
++    for (const auto& tensor : condition.extra_c_crossattns) bytes += text_condition_tensor_bytes(tensor);
++    return bytes;
++}
++
++static uint64_t text_condition_cache_key(const ConditionerParams& params) {
++    uint64_t hash = UINT64_C(14695981039346656037);
++    hash = ref_latent_cache_hash_bytes(hash, params.text.data(), params.text.size());
++    hash = ref_latent_cache_hash_value(hash, params.clip_skip);
++    hash = ref_latent_cache_hash_value(hash, params.width);
++    hash = ref_latent_cache_hash_value(hash, params.height);
++    hash = ref_latent_cache_hash_value(hash, params.zero_out_masked);
++    hash = ref_latent_cache_hash_value(hash, params.ref_image_params.pass_to_vlm);
++    hash = ref_latent_cache_hash_value(hash, params.ref_image_params.pass_to_dit);
++    hash = ref_latent_cache_hash_value(hash, params.ref_image_params.ref_index_mode);
++    hash = ref_latent_cache_hash_value(hash, params.ref_image_params.force_ref_timestep_zero);
++    hash = ref_latent_cache_hash_value(hash, params.ref_image_params.resize_before_vae);
++    hash = ref_latent_cache_hash_value(hash, params.ref_image_params.vae_input_max_pixels);
++    hash = ref_latent_cache_hash_value(hash, params.ref_image_params.vlm_resize_mode);
++    hash = ref_latent_cache_hash_value(hash, params.ref_image_params.vlm_min_size);
++    hash = ref_latent_cache_hash_value(hash, params.ref_image_params.vlm_max_size);
++    hash = ref_latent_cache_hash_value(hash, params.ref_image_params.resize_vae_to_target);
++    return hash;
++}
++
++static SDCondition get_learned_condition_cached(sd_ctx_t* ctx,
++                                                const ConditionerParams& params) {
++    const bool cacheable = ctx->sd->version == VERSION_FLUX2_KLEIN &&
++                           params.ref_images == nullptr &&
++                           params.minimax_h3_references == nullptr;
++    if (!cacheable) {
++        return ctx->sd->cond_stage_model->get_learned_condition(ctx->sd->n_threads, params);
++    }
++
++    const uint64_t key = text_condition_cache_key(params);
++    ++ctx->text_condition_cache_clock;
++    for (auto& entry : ctx->text_condition_cache) {
++        if (entry.key == key) {
++            entry.last_used = ctx->text_condition_cache_clock;
++            ++ctx->text_condition_cache_hits;
++            LOG_INFO("text condition cache hit (hits=%" PRIu64 ", misses=%" PRIu64 ", size=%zu/%zu)",
++                     ctx->text_condition_cache_hits,
++                     ctx->text_condition_cache_misses,
++                     ctx->text_condition_cache.size(),
++                     TEXT_CONDITION_CACHE_CAPACITY);
++            return entry.condition;
++        }
++    }
++
++    ++ctx->text_condition_cache_misses;
++    SDCondition condition = ctx->sd->cond_stage_model->get_learned_condition(ctx->sd->n_threads, params);
++    if (condition.empty() || TEXT_CONDITION_CACHE_CAPACITY == 0) {
++        return condition;
++    }
++    if (ctx->text_condition_cache.size() >= TEXT_CONDITION_CACHE_CAPACITY) {
++        auto oldest = std::min_element(ctx->text_condition_cache.begin(),
++                                       ctx->text_condition_cache.end(),
++                                       [](const TextConditionCacheEntry& a, const TextConditionCacheEntry& b) {
++                                           return a.last_used < b.last_used;
++                                       });
++        ctx->text_condition_cache.erase(oldest);
++        ++ctx->text_condition_cache_evictions;
++    }
++    const size_t bytes = text_condition_bytes(condition);
++    ctx->text_condition_cache.push_back({key, condition, ++ctx->text_condition_cache_clock, bytes});
++    size_t total_bytes = 0;
++    for (const auto& entry : ctx->text_condition_cache) total_bytes += entry.bytes;
++    LOG_INFO("text condition cache store (size=%zu/%zu, bytes=%zu, evictions=%" PRIu64 ")",
++             ctx->text_condition_cache.size(),
++             TEXT_CONDITION_CACHE_CAPACITY,
++             total_bytes,
++             ctx->text_condition_cache_evictions);
++    return condition;
++}
++
+ static bool sd_version_supports_video_generation(SDVersion version) {
+     return version == VERSION_SVD || sd_version_is_wan(version) || sd_version_is_hunyuan_video(version) || sd_version_is_lingbot_video(version) || sd_version_is_ltxav(version) || sd_version_is_minimax_h3(version);
+ }
+@@ -3821,21 +4010,21 @@ static bool sd_version_supports_image_generation(SDVersion version) {
+ }
+ 
+ sd_ctx_t* new_sd_ctx(const sd_ctx_params_t* sd_ctx_params) {
+-    sd_ctx_t* sd_ctx = (sd_ctx_t*)malloc(sizeof(sd_ctx_t));
++    sd_ctx_t* sd_ctx = new (std::nothrow) sd_ctx_t();
+     if (sd_ctx == nullptr) {
+         return nullptr;
+     }
+ 
+     sd_ctx->sd = new StableDiffusionGGML();
+     if (sd_ctx->sd == nullptr) {
+-        free(sd_ctx);
++        delete sd_ctx;
+         return nullptr;
+     }
+ 
+     if (!sd_ctx->sd->init(sd_ctx_params)) {
+         delete sd_ctx->sd;
+         sd_ctx->sd = nullptr;
+-        free(sd_ctx);
++        delete sd_ctx;
+         return nullptr;
+     }
+     return sd_ctx;
+@@ -3846,7 +4035,7 @@ void free_sd_ctx(sd_ctx_t* sd_ctx) {
+         delete sd_ctx->sd;
+         sd_ctx->sd = nullptr;
+     }
+-    free(sd_ctx);
++    delete sd_ctx;
+ }
+ 
+ SD_API void sd_cancel_generation(sd_ctx_t* sd_ctx, enum sd_cancel_mode_t mode) {
+@@ -5048,7 +5237,17 @@ static std::optional<ImageGenerationLatents> prepare_image_generation_latents(sd
+             continue;
+         }
+         sd::Tensor<float> ref_latent;
+-        if (ref_image_params.resize_before_vae && !sd_version_is_pid(sd_ctx->sd->version)) {
++        bool cacheable     = i < static_cast<size_t>(sd_img_gen_params->ref_images_count);
++        uint64_t cache_key = 0;
++        bool cache_hit     = false;
++        if (cacheable) {
++            cache_key = ref_latent_cache_key(sd_img_gen_params->ref_images[i],
++                                             request->width,
++                                             request->height,
++                                             ref_image_params);
++            cache_hit = ref_latent_cache_get(sd_ctx, cache_key, &ref_latent);
++        }
++        if (!cache_hit && ref_image_params.resize_before_vae && !sd_version_is_pid(sd_ctx->sd->version)) {
+             LOG_DEBUG("auto resize ref images");
+             double vae_width;
+             double vae_height;
+@@ -5080,13 +5279,16 @@ static std::optional<ImageGenerationLatents> prepare_image_generation_latents(sd
+                       resized_ref_img.shape()[0]);
+ 
+             ref_latent = sd_ctx->sd->encode_first_stage(resized_ref_img);
+-        } else {
++        } else if (!cache_hit) {
+             ref_latent = sd_ctx->sd->encode_first_stage(ref_images[i]);
+         }
+         if (ref_latent.empty()) {
+             LOG_ERROR("failed to encode reference image %d", static_cast<int>(i));
+             return std::nullopt;
+         }
++        if (cacheable && !cache_hit) {
++            ref_latent_cache_put(sd_ctx, cache_key, ref_latent);
++        }
+ 
+         ref_latents.push_back(std::move(ref_latent));
+     }
+@@ -5207,8 +5409,7 @@ static std::optional<ImageGenerationEmbeds> prepare_image_generation_embeds(sd_c
+     sd_ctx->sd->compute_ip_adapter_tokens(sd_img_gen_params->ip_adapter_image, sd_img_gen_params->ip_adapter_strength);
+     int64_t prepare_start_ms         = ggml_time_ms();
+     condition_params.zero_out_masked = false;
+-    auto cond                        = sd_ctx->sd->cond_stage_model->get_learned_condition(sd_ctx->sd->n_threads,
+-                                                                                           condition_params);
++    auto cond                        = get_learned_condition_cached(sd_ctx, condition_params);
+     if (cond.c_concat.empty() && ref_image_params.pass_to_dit) {
+         cond.c_concat = latents->concat_latent;  // TODO: optimize
+     }
+@@ -5235,8 +5436,7 @@ static std::optional<ImageGenerationEmbeds> prepare_image_generation_embeds(sd_c
+             }
+             condition_params.text            = request->negative_prompt;
+             condition_params.zero_out_masked = zero_out_masked;
+-            uncond                           = sd_ctx->sd->cond_stage_model->get_learned_condition(sd_ctx->sd->n_threads,
+-                                                                                                   condition_params);
++            uncond                           = get_learned_condition_cached(sd_ctx, condition_params);
+         }
+         if (uncond.c_concat.empty() && ref_image_params.pass_to_dit) {
+             uncond.c_concat = latents->concat_latent;  // TODO: optimize
+@@ -5260,8 +5460,7 @@ static std::optional<ImageGenerationEmbeds> prepare_image_generation_embeds(sd_c
+             if (use_ref_latent_img_cfg) {
+                 condition_params.ref_images = &empty_ref_images;
+             }
+-            img_uncond = sd_ctx->sd->cond_stage_model->get_learned_condition(sd_ctx->sd->n_threads,
+-                                                                             condition_params);
++            img_uncond = get_learned_condition_cached(sd_ctx, condition_params);
+             if (img_uncond.c_concat.empty() && ref_image_params.pass_to_dit) {
+                 img_uncond.c_concat = latents->img_uncond_concat_latent;  // TODO: optimize
+             }
