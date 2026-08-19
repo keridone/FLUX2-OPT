@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "name": "flux2-runtime-parameter-screen-v1",
+  "baseline_run": "no-offload-baseline-v1",
+  "fixed_protocol": {
+    "model": "flux-2-klein-4b-Q8_0.gguf",
+    "text_encoder": "Qwen3-4B-Q4_K_M.gguf",
+    "resolution": [512, 512],
+    "steps": 4,
+    "cfg_scale": 1.0,
+    "sampler": "euler",
+    "cpu_offload": false,
+    "task": "season_001_winter_city",
+    "repeats": 5,
+    "warmups": 1
+  },
+  "experiments": [
+    {
+      "id": "p00-control-fa-auto",
+      "purpose": "Repeat the deployed control and quantify run-to-run variance.",
+      "args": ["--diffusion-fa"],
+      "expected_comparison": "no-offload-baseline-v1"
+    },
+    {
+      "id": "p01-no-flash-attention",
+      "purpose": "Measure the net latency and VRAM effect of diffusion Flash Attention.",
+      "args": [],
+      "expected_comparison": "p00-control-fa-auto"
+    },
+    {
+      "id": "p02-fa-threads-8",
+      "purpose": "Test whether limiting host workers reduces scheduling overhead.",
+      "args": ["--diffusion-fa", "--threads", "8"],
+      "expected_comparison": "p00-control-fa-auto"
+    },
+    {
+      "id": "p03-fa-threads-16",
+      "purpose": "Test a larger fixed host worker pool against automatic selection.",
+      "args": ["--diffusion-fa", "--threads", "16"],
+      "expected_comparison": "p00-control-fa-auto"
+    },
+    {
+      "id": "p04-fa-vae-conv-direct",
+      "purpose": "Measure direct VAE convolution impact on encode/decode latency and VRAM.",
+      "args": ["--diffusion-fa", "--vae-conv-direct"],
+      "expected_comparison": "p00-control-fa-auto",
+      "requires_cli_flag": "--vae-conv-direct"
+    }
+  ],
+  "gates": {
+    "minimum_median_speedup_percent": 3.0,
+    "maximum_p95_regression_percent": 0.0,
+    "require_successful_runs": 5,
+    "require_output_review": true,
+    "require_no_oom": true
+  }
+}

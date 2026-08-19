@@ -86,4 +86,6 @@ seeds, dimensions, sampling settings, and quality gate.
 The first CUDA profiling dataset and bottleneck analysis are under
 [`profiling/`](profiling/). It includes raw Nsight Systems/Compute reports,
 normalized CSV/JSON data for visualization, reproducible collection scripts,
-and the current compute/bandwidth/VRAM bottleneck classification.
+operator-level counters, and the current compute/bandwidth/VRAM bottleneck
+classification. The next-stage build/runtime audit and parameter experiment
+matrix are under [`optimization/`](optimization/).
