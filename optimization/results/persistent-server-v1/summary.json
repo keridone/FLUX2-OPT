@@ -1,0 +1,26 @@
+{
+  "run_id": "persistent-server-v1",
+  "tasks_per_pair": 2,
+  "repeats": 3,
+  "persistent_pair_wall_seconds_median": 5.7706,
+  "throughput_tasks_per_second": 0.3466,
+  "separate_cli_pair_wall_seconds_control": 12.2753,
+  "wall_time_reduction_percent": 52.99,
+  "throughput_improvement_percent": 112.77,
+  "idle_gpu_memory_mib": 9036,
+  "queue_execution": "serial jobs sharing one persistent sd_ctx_t",
+  "source_built_control_pixel_match": {
+    "task": "season_001_winter_city",
+    "rgb_sha256": "a795df9db835832a69b48588093381df513f6420fe18f26a0e54e649a792c6b8",
+    "mean_absolute_error": 0.0,
+    "max_absolute_error": 0
+  },
+  "output_hashes_by_task": [
+    [
+      "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+    ],
+    [
+      "86d557b7b8d1ee8c8db7bc690d40403a9920f195b3051b7bb881d077c8503d31"
+    ]
+  ]
+}

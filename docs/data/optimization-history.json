@@ -1,6 +1,6 @@
 {
   "project": "FLUX.2 Optimization Log",
-  "updatedAt": "2026-08-16",
+  "updatedAt": "2026-08-19",
   "benchmark": {
     "model": "FLUX.2 Klein 4B Q8_0",
     "gpu": "NVIDIA GeForce RTX 5060 Ti 16 GB",
@@ -68,11 +68,44 @@
         "qualityPassPercent": 85
       },
       "gainPercent": 16.97,
-      "status": "current",
+      "status": "accepted",
       "links": [
         { "label": "优化报告", "href": "https://github.com/keridone/FLUX2-OPT/tree/main/benchmark/results/no-offload-baseline-v1" },
         { "label": "完整指标", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/benchmark/results/no-offload-baseline-v1/summary.json" },
         { "label": "实现提交", "href": "https://github.com/keridone/FLUX2-OPT/commit/c65db8b" }
+      ]
+    },
+    {
+      "id": "persistent-server",
+      "sequence": 3,
+      "date": "2026-08-19",
+      "label": "优化 02",
+      "version": "persistent-server-v1",
+      "method": "Persistent Model Queue",
+      "headline": "模型常驻并连续处理异构编辑任务",
+      "summary": "使用 sd-server 常驻同一个模型上下文，通过异步队列依次执行不同 prompt、参考图和 seed，消除每个任务重复加载模型的开销。",
+      "details": [
+        "一个季节编辑与一个天气编辑组成异构任务对",
+        "两个任务共享同一个 sd_ctx_t，GPU generation 串行安全执行",
+        "两任务中位总耗时由 12.2753 秒降至 5.7706 秒",
+        "与 source-built CLI control 的解码 RGB 像素完全一致"
+      ],
+      "metrics": {
+        "medianSeconds": 2.8853,
+        "p95Seconds": 3.0254,
+        "generationSeconds": 2.765,
+        "samplingSeconds": 2.15,
+        "conditioningSeconds": 0.1,
+        "peakVramMiB": 10699,
+        "peakRamMiB": 838,
+        "qualityPassPercent": 100
+      },
+      "gainPercent": 50.61,
+      "status": "current",
+      "links": [
+        { "label": "实现与报告", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/PARALLEL_INFERENCE_REPORT.md" },
+        { "label": "完整指标", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/results/persistent-server-v1/summary.json" },
+        { "label": "实验脚本", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/benchmark_persistent_server.py" }
       ]
     }
   ],
@@ -83,8 +116,8 @@
     { "name": "复制与逐元素算子", "share": 20.5, "type": "带宽与启动开销", "tone": "green" }
   ],
   "roadmap": [
-    { "rank": "01", "title": "优化 Q8 GEMM", "text": "降低寄存器与共享内存压力，针对 Blackwell / SM 12.0 调整 tile。" },
-    { "rank": "02", "title": "调整 Flash Attention", "text": "测试更高 occupancy 的 kernel 变体与 tile 配置。" },
-    { "rank": "03", "title": "算子融合", "text": "融合 add、multiply、norm 与 copy 链，减少中间张量和 kernel 启动。" }
+    { "rank": "01", "title": "Timestep Micro-batch", "text": "让相同 shape 和 timestep 的队列任务合并为单次模型执行。" },
+    { "rank": "02", "title": "条件与 Latent 缓存", "text": "复用重复 prompt 的文本条件和重复参考图的 VAE latent。" },
+    { "rank": "03", "title": "CUDA Graph", "text": "为固定 shape、step 和 batch 捕获执行图，降低 kernel 启动开销。" }
   ]
 }

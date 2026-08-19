@@ -1,0 +1,71 @@
+[
+  {
+    "repeat": 1,
+    "wall_seconds": 5.7486,
+    "submission_seconds": 0.1858,
+    "output_hashes": [
+      "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2",
+      "86d557b7b8d1ee8c8db7bc690d40403a9920f195b3051b7bb881d077c8503d31"
+    ],
+    "jobs": [
+      {
+        "id": "job_6a8581fb_00000008",
+        "created": 1787134459,
+        "started": 1787134459,
+        "completed": 1787134462
+      },
+      {
+        "id": "job_6a8581fb_00000009",
+        "created": 1787134459,
+        "started": 1787134462,
+        "completed": 1787134465
+      }
+    ]
+  },
+  {
+    "repeat": 2,
+    "wall_seconds": 5.7906,
+    "submission_seconds": 0.1986,
+    "output_hashes": [
+      "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2",
+      "86d557b7b8d1ee8c8db7bc690d40403a9920f195b3051b7bb881d077c8503d31"
+    ],
+    "jobs": [
+      {
+        "id": "job_6a858201_0000000a",
+        "created": 1787134465,
+        "started": 1787134465,
+        "completed": 1787134468
+      },
+      {
+        "id": "job_6a858201_0000000b",
+        "created": 1787134465,
+        "started": 1787134468,
+        "completed": 1787134471
+      }
+    ]
+  },
+  {
+    "repeat": 3,
+    "wall_seconds": 5.7706,
+    "submission_seconds": 0.1619,
+    "output_hashes": [
+      "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2",
+      "86d557b7b8d1ee8c8db7bc690d40403a9920f195b3051b7bb881d077c8503d31"
+    ],
+    "jobs": [
+      {
+        "id": "job_6a858207_0000000c",
+        "created": 1787134471,
+        "started": 1787134471,
+        "completed": 1787134474
+      },
+      {
+        "id": "job_6a858207_0000000d",
+        "created": 1787134471,
+        "started": 1787134474,
+        "completed": 1787134476
+      }
+    ]
+  }
+]
