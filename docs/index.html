@@ -23,20 +23,20 @@
   <main id="top">
     <section class="chart-section" id="history" aria-labelledby="chart-title">
       <div class="section-heading">
-        <div><span class="section-index">01 / HISTORY</span><h2 id="chart-title">端到端延迟演进</h2></div>
+        <div><span class="section-index">01 / HISTORY</span><h2 id="chart-title">每秒任务数演进</h2></div>
         <div class="chart-toolbar" aria-label="图表指标切换">
           <div class="metric-toggle" role="group" aria-label="选择图表指标">
             <span class="toggle-label">VIEW</span>
-            <button type="button" data-metric="latency" aria-pressed="true"><span></span>延迟</button>
-            <button type="button" data-metric="throughput" aria-pressed="false"><span></span>Tasks / 秒</button>
+            <button type="button" data-metric="throughput" aria-pressed="true"><span></span>Tasks / 秒</button>
+            <button type="button" data-metric="latency" aria-pressed="false"><span></span>延迟</button>
           </div>
-          <div class="chart-legend" id="chart-legend"><span></span> Median latency · 越低越好</div>
+          <div class="chart-legend" id="chart-legend"><span></span> Derived throughput · 越高越好</div>
         </div>
       </div>
       <div class="chart-shell">
         <div class="chart-kpis" id="chart-kpis"></div>
         <div class="canvas-wrap">
-          <canvas id="history-chart" role="img" aria-label="FLUX.2 端到端延迟优化折线图"></canvas>
+          <canvas id="history-chart" role="img" aria-label="FLUX.2 每秒任务数优化折线图"></canvas>
           <div class="chart-tooltip" id="chart-tooltip" role="status" aria-live="polite"></div>
           <div class="chart-focus-controls" id="chart-focus-controls" aria-label="折线图数据节点"></div>
         </div>

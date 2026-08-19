@@ -1,4 +1,4 @@
-const state={data:null,points:[],activeIndex:null,metric:"latency"};
+const state={data:null,points:[],activeIndex:null,metric:"throughput"};
 const fmt=new Intl.NumberFormat("zh-CN",{maximumFractionDigits:2});
 async function loadData(){const r=await fetch("./data/optimization-history.json");if(!r.ok)throw new Error("无法加载优化历史数据");state.data=await r.json();renderPage()}
 function renderPage(){
