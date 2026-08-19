@@ -2,8 +2,7 @@ const state={data:null,points:[],activeIndex:null,metric:"latency"};
 const fmt=new Intl.NumberFormat("zh-CN",{maximumFractionDigits:2});
 async function loadData(){const r=await fetch("./data/optimization-history.json");if(!r.ok)throw new Error("无法加载优化历史数据");state.data=await r.json();renderPage()}
 function renderPage(){
- const d=state.data,b=d.benchmark,n=d.nodes,latest=n[n.length-1],first=n[0].metrics;
- document.querySelector("#hero-meta").innerHTML=[["MODEL",b.model],["GPU",b.gpu],["WORKLOAD",b.workload],["RES",b.resolution]].map(x=>"<span>"+x[0]+" <strong>"+x[1]+"</strong></span>").join("");
+ const d=state.data,n=d.nodes;
  document.querySelector("#node-list").innerHTML=n.map(renderNodeCard).join("");
  document.querySelector("#bottleneck-list").innerHTML=d.bottlenecks.map(x=>'<div class="bottleneck-row"><div class="bottleneck-name"><strong>'+x.name+"</strong><span>"+x.type+'</span></div><div class="bar-track"><div class="bar-fill '+x.tone+'" style="width:'+Math.min(x.share*2.2,100)+'%"></div></div><div class="bottleneck-value">'+x.share.toFixed(1)+"%</div></div>").join("");
  document.querySelector("#roadmap-grid").innerHTML=d.roadmap.map(x=>'<article class="roadmap-card"><span class="roadmap-rank">'+x.rank+"</span><h3>"+x.title+"</h3><p>"+x.text+"</p></article>").join("");
@@ -23,7 +22,7 @@ function setupChart(){
  const c=document.querySelector("#history-chart"),controls=document.querySelector("#chart-focus-controls");
  new ResizeObserver(drawChart).observe(c.parentElement);c.addEventListener("mousemove",onChartMove);c.addEventListener("mouseleave",()=>{state.activeIndex=null;hideTooltip();drawChart()});c.addEventListener("click",activateNearest);
  controls.innerHTML=state.data.nodes.map((n,i)=>'<button class="chart-point-button" data-index="'+i+'" aria-label="'+n.label+"，中位延迟 "+n.metrics.medianSeconds+' 秒"></button>').join("");
- controls.querySelectorAll("button").forEach(b=>{b.addEventListener("focus",()=>showPoint(Number(b.dataset.index)));b.addEventListener("blur",hideTooltip);b.addEventListener("click",()=>document.querySelector("#"+state.data.nodes[b.dataset.index].id).scrollIntoView({behavior:"smooth",block:"center"}))});
+ controls.querySelectorAll("button").forEach(b=>{b.addEventListener("focus",()=>showPoint(Number(b.dataset.index)));b.addEventListener("blur",hideTooltip);b.addEventListener("click",()=>showPoint(Number(b.dataset.index)))});
  document.querySelectorAll(".metric-toggle button").forEach(b=>b.addEventListener("click",()=>setChartMetric(b.dataset.metric)));
 }
 function setChartMetric(metric){
@@ -50,7 +49,7 @@ function drawChart(){
 function coords(e){const r=e.currentTarget.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
 function nearest(x,y){return state.points.map((p,i)=>({i,d:Math.hypot(p.x-x,p.y-y)})).sort((a,b)=>a.d-b.d)[0]}
 function onChartMove(e){const c=coords(e),n=nearest(c.x,c.y);if(n.d<44)showPoint(n.i);else{state.activeIndex=null;hideTooltip();drawChart()}}
-function activateNearest(e){const c=coords(e),n=nearest(c.x,c.y);if(n.d<44)document.querySelector("#"+state.data.nodes[n.i].id).scrollIntoView({behavior:"smooth",block:"center"})}
+function activateNearest(e){const c=coords(e),n=nearest(c.x,c.y);if(n.d<44)showPoint(n.i)}
 function showPoint(i){
  state.activeIndex=i;drawChart();const p=state.points[i],n=p.node,m=n.metrics,t=document.querySelector("#chart-tooltip"),gain=n.gainPercent?"+"+n.gainPercent.toFixed(2)+"%":"BASELINE";
  const value=state.metric==="throughput"?tasksPerSecond(n).toFixed(3)+" task/s":m.medianSeconds.toFixed(3)+"s";
