@@ -91,8 +91,8 @@
         "与 source-built CLI control 的解码 RGB 像素完全一致"
       ],
       "metrics": {
-        "medianSeconds": 2.8853,
-        "p95Seconds": 3.0254,
+        "medianSeconds": 2.8586,
+        "p95Seconds": 2.9024,
         "generationSeconds": 2.765,
         "samplingSeconds": 2.15,
         "conditioningSeconds": 0.1,
@@ -100,11 +100,12 @@
         "peakRamMiB": 838,
         "qualityPassPercent": 100
       },
-      "gainPercent": 50.61,
+      "gainPercent": 51.06,
       "status": "current",
       "links": [
         { "label": "实现与报告", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/PARALLEL_INFERENCE_REPORT.md" },
         { "label": "完整指标", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/results/persistent-server-v1/summary.json" },
+        { "label": "60 次回归", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/results/persistent-suite-v1/summary.json" },
         { "label": "实验脚本", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/benchmark_persistent_server.py" }
       ]
     }

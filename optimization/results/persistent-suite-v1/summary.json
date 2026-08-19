@@ -1,0 +1,26 @@
+{
+  "run_id": "persistent-suite-v1",
+  "tasks": 20,
+  "repeats": 3,
+  "completed_runs": 60,
+  "failed_runs": 0,
+  "latency_seconds": {
+    "median": 2.8586,
+    "p95": 2.9024,
+    "min": 2.8093,
+    "max": 3.1173
+  },
+  "throughput_tasks_per_second": 0.3494,
+  "deterministic_across_repeats": true,
+  "baseline_pixel_difference": {
+    "mean_absolute_error_median": 0.406504,
+    "mean_absolute_error_max": 0.5793,
+    "max_absolute_error_max": 59
+  },
+  "gpu_memory_mib": {
+    "after_warmup": 9201.0,
+    "min": 9183.0,
+    "max": 9228.0,
+    "end_minus_start": -9.0
+  }
+}
