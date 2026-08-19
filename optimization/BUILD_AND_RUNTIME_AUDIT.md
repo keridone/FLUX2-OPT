@@ -42,6 +42,24 @@ The control must run first and again last. If the two controls differ by more
 than 3% in median latency, discard the screen as thermally or operationally
 unstable. Randomize the middle cells to reduce ordering bias.
 
+### Parameter screen result (v2)
+
+The second screen passed the stability check: the final control median differed
+from the initial control by only +0.173%.
+
+| Cell | Median wall time | Change vs control | Decision |
+| --- | ---: | ---: | --- |
+| Flash Attention, automatic threads | 5.7941 s | control | Keep |
+| Flash Attention, 16 threads | 5.8028 s | +0.15% | Reject: no improvement |
+| Flash Attention, 8 threads | 5.8192 s | +0.43% | Reject: no improvement |
+| No Flash Attention | 6.7366 s | +16.27% | Reject |
+| Flash Attention + direct VAE convolution | 15.1887 s | +162.16% | Reject |
+
+The fixed-thread cells are byte-identical to the control. Disabling Flash
+Attention and enabling direct VAE convolution produce different output hashes,
+in addition to being slower. Raw records and the machine-readable summary are
+stored in `optimization/results/parameter-screen-v2`.
+
 ## Q8 GEMM work package
 
 Parameter screening must not be mixed with kernel changes. Create a pinned
@@ -66,3 +84,22 @@ The first Q8 experiments are:
 Every candidate must retain the baseline output hash where deterministic. If a
 compiler change prevents byte equality, run the complete quality review before
 acceptance.
+
+### Q8 experiment 1: cap `mmq_x` at 64
+
+The first candidate limited `GGML_TYPE_Q8_0` to `mmq_x <= 64`, instead of the
+selected `mmq_x=128`, to test the low-occupancy hypothesis. The candidate was
+compiled for CUDA architecture 120a and compared with an otherwise identical
+source-built control in alternating order.
+
+| Variant | Median wall time | Median sampling | Peak VRAM |
+| --- | ---: | ---: | ---: |
+| Control, `mmq_x=128` | 5.7585 s | 3.13 s | 10,754 MiB |
+| Candidate, `mmq_x<=64` | 5.9808 s | 3.35 s | 10,748 MiB |
+
+The candidate regressed end-to-end latency by 3.86%, saved only 6 MiB of peak
+VRAM, and changed the output hash. It is rejected. The result shows that simply
+reducing the tile width loses more work efficiency than it gains from lower
+resource pressure. The next Q8 experiment should preserve `mmq_x=128` and
+target register lifetime/instruction scheduling inside the Q8 specialization,
+or compare the current implementation with a fused Tensor Core path.

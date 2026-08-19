@@ -1,0 +1,107 @@
+﻿[
+    {
+        "Name":  "ggml-base.dll",
+        "Length":  643072,
+        "LastWriteTimeUtc":  "\/Date(1785923734000)\/"
+    },
+    {
+        "Name":  "ggml-cpu-alderlake.dll",
+        "Length":  789504,
+        "LastWriteTimeUtc":  "\/Date(1785930484000)\/"
+    },
+    {
+        "Name":  "ggml-cpu-cannonlake.dll",
+        "Length":  834048,
+        "LastWriteTimeUtc":  "\/Date(1785930480000)\/"
+    },
+    {
+        "Name":  "ggml-cpu-cascadelake.dll",
+        "Length":  831488,
+        "LastWriteTimeUtc":  "\/Date(1785930484000)\/"
+    },
+    {
+        "Name":  "ggml-cpu-haswell.dll",
+        "Length":  790528,
+        "LastWriteTimeUtc":  "\/Date(1785930478000)\/"
+    },
+    {
+        "Name":  "ggml-cpu-icelake.dll",
+        "Length":  831488,
+        "LastWriteTimeUtc":  "\/Date(1785930484000)\/"
+    },
+    {
+        "Name":  "ggml-cpu-sandybridge.dll",
+        "Length":  763904,
+        "LastWriteTimeUtc":  "\/Date(1785930478000)\/"
+    },
+    {
+        "Name":  "ggml-cpu-skylakex.dll",
+        "Length":  834048,
+        "LastWriteTimeUtc":  "\/Date(1785930480000)\/"
+    },
+    {
+        "Name":  "ggml-cpu-sse42.dll",
+        "Length":  751616,
+        "LastWriteTimeUtc":  "\/Date(1785930476000)\/"
+    },
+    {
+        "Name":  "ggml-cpu-x64.dll",
+        "Length":  752640,
+        "LastWriteTimeUtc":  "\/Date(1785930476000)\/"
+    },
+    {
+        "Name":  "ggml-cuda.dll",
+        "Length":  350947328,
+        "LastWriteTimeUtc":  "\/Date(1785930726000)\/"
+    },
+    {
+        "Name":  "ggml.dll",
+        "Length":  63488,
+        "LastWriteTimeUtc":  "\/Date(1785930726000)\/"
+    },
+    {
+        "Name":  "ggml.txt",
+        "Length":  1099,
+        "LastWriteTimeUtc":  "\/Date(1785923128000)\/"
+    },
+    {
+        "Name":  "libsharpyuv.dll",
+        "Length":  24576,
+        "LastWriteTimeUtc":  "\/Date(1785930484000)\/"
+    },
+    {
+        "Name":  "libwebp.dll",
+        "Length":  373248,
+        "LastWriteTimeUtc":  "\/Date(1785930648000)\/"
+    },
+    {
+        "Name":  "libwebpmux.dll",
+        "Length":  41984,
+        "LastWriteTimeUtc":  "\/Date(1785930654000)\/"
+    },
+    {
+        "Name":  "sd-cli.exe",
+        "Length":  640000,
+        "LastWriteTimeUtc":  "\/Date(1785930726000)\/"
+    },
+    {
+        "Name":  "sd-server.exe",
+        "Length":  1112064,
+        "LastWriteTimeUtc":  "\/Date(1785930726000)\/"
+    },
+    {
+        "Name":  "stable-diffusion.cpp.txt",
+        "Length":  1082,
+        "LastWriteTimeUtc":  "\/Date(1785923120000)\/"
+    },
+    {
+        "Name":  "stable-diffusion.dll",
+        "Length":  52650496,
+        "LastWriteTimeUtc":  "\/Date(1785930726000)\/"
+    },
+    {
+        "Name":  "webm.dll",
+        "Length":  328192,
+        "LastWriteTimeUtc":  "\/Date(1785930656000)\/"
+    }
+]

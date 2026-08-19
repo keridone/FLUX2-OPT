@@ -1,0 +1,26 @@
+{
+  "completed_at": "2026-08-19T14:19:49+0800",
+  "variants": {
+    "control-x128": {
+      "wall_seconds_median": 5.7585,
+      "generation_seconds_median": 5.28,
+      "sampling_seconds_median": 3.13,
+      "peak_gpu_mib_max": 10754.0,
+      "binary_sha256": "6701bb1af38bd8067a6798ecae20eb19e361f48d8f74bf4f4679a21b6154cf0d",
+      "output_hashes": [
+        "ad290d7b8a391a5cf8a195775c7b0a418d3c0bb57fd30aa51870a42a31c0e3f0"
+      ]
+    },
+    "candidate-x64": {
+      "wall_seconds_median": 5.9808,
+      "generation_seconds_median": 5.5,
+      "sampling_seconds_median": 3.35,
+      "peak_gpu_mib_max": 10748.0,
+      "binary_sha256": "e6e16b880552ac57a655338e1e1ab9d3f5a836b51afb9686158a8c7a9cbc109e",
+      "output_hashes": [
+        "f19e549e86968d859cc06bb9ffd86656ef734dbb306a96f237800d957dfff26c"
+      ]
+    }
+  },
+  "candidate_speedup_percent": -3.86
+}

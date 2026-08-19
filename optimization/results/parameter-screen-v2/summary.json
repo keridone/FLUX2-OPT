@@ -1,0 +1,113 @@
+{
+  "completed_at": "2026-08-19T13:46:22+0800",
+  "input_sha256": "941e9e2b75eb8b11a1262a75908f1662a3827cc61ee8233f2300c6b6bd04d975",
+  "control_drift_percent": 0.173,
+  "stable": true,
+  "experiments": [
+    {
+      "experiment_id": "p00-control-fa-auto",
+      "args": [
+        "--diffusion-fa"
+      ],
+      "samples": 5,
+      "wall_seconds_median": 5.7941,
+      "generation_seconds_median": 5.33,
+      "reference_encode_seconds_median": 0.52,
+      "conditioning_seconds_median": 1.13,
+      "sampling_seconds_median": 3.17,
+      "decode_seconds_median": 0.51,
+      "peak_gpu_mib_max": 10757.0,
+      "output_hashes": [
+        "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5"
+      ]
+    },
+    {
+      "experiment_id": "p03-fa-threads-16",
+      "args": [
+        "--diffusion-fa",
+        "--threads",
+        "16"
+      ],
+      "samples": 5,
+      "wall_seconds_median": 5.8028,
+      "generation_seconds_median": 5.33,
+      "reference_encode_seconds_median": 0.51,
+      "conditioning_seconds_median": 1.13,
+      "sampling_seconds_median": 3.17,
+      "decode_seconds_median": 0.5,
+      "peak_gpu_mib_max": 10742.0,
+      "output_hashes": [
+        "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5"
+      ]
+    },
+    {
+      "experiment_id": "p01-no-flash-attention",
+      "args": [],
+      "samples": 5,
+      "wall_seconds_median": 6.7366,
+      "generation_seconds_median": 6.26,
+      "reference_encode_seconds_median": 0.52,
+      "conditioning_seconds_median": 1.13,
+      "sampling_seconds_median": 4.1,
+      "decode_seconds_median": 0.51,
+      "peak_gpu_mib_max": 10734.0,
+      "output_hashes": [
+        "0e6aea58a47fd26af65228ac342f298cfd95a478d4303a377a95de1fe9fc4e3f"
+      ]
+    },
+    {
+      "experiment_id": "p02-fa-threads-8",
+      "args": [
+        "--diffusion-fa",
+        "--threads",
+        "8"
+      ],
+      "samples": 5,
+      "wall_seconds_median": 5.8192,
+      "generation_seconds_median": 5.34,
+      "reference_encode_seconds_median": 0.52,
+      "conditioning_seconds_median": 1.14,
+      "sampling_seconds_median": 3.17,
+      "decode_seconds_median": 0.51,
+      "peak_gpu_mib_max": 10744.0,
+      "output_hashes": [
+        "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5"
+      ]
+    },
+    {
+      "experiment_id": "p04-fa-vae-conv-direct",
+      "args": [
+        "--diffusion-fa",
+        "--vae-conv-direct"
+      ],
+      "samples": 5,
+      "wall_seconds_median": 15.1887,
+      "generation_seconds_median": 14.71,
+      "reference_encode_seconds_median": 3.28,
+      "conditioning_seconds_median": 1.13,
+      "sampling_seconds_median": 3.17,
+      "decode_seconds_median": 7.14,
+      "peak_gpu_mib_max": 9712.0,
+      "output_hashes": [
+        "2386cc45cce63e6379ad39811d06a4dfb75f5be16a92730cedbd896802a996df"
+      ]
+    },
+    {
+      "experiment_id": "p00-control-fa-auto-final",
+      "args": [
+        "--diffusion-fa"
+      ],
+      "samples": 5,
+      "wall_seconds_median": 5.8041,
+      "generation_seconds_median": 5.33,
+      "reference_encode_seconds_median": 0.51,
+      "conditioning_seconds_median": 1.13,
+      "sampling_seconds_median": 3.17,
+      "decode_seconds_median": 0.51,
+      "peak_gpu_mib_max": 10742.0,
+      "output_hashes": [
+        "cbdf7082cd99ee46c783ec8538c96622b59b42b95ad2bfa5a87bff619812bef5"
+      ]
+    }
+  ]
+}

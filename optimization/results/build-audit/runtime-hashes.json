@@ -1,0 +1,86 @@
+﻿[
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-base.dll",
+        "Hash":  "19E3A64AFF900B37C5A9A7ACEBD6453529A8F5590CAAF018780A83B02A262DF0"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-cpu-alderlake.dll",
+        "Hash":  "E5523F0FF105A581A928F7866C21CC3E28F67AAE90BD16B0D871544A2DB8B3E5"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-cpu-cannonlake.dll",
+        "Hash":  "DBB7A6FCF9D003D5999305D8CECE849E200E872A4CAB2BE138B24918F7E50A76"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-cpu-cascadelake.dll",
+        "Hash":  "B7EA3D6F07468C173DEE0B7CB252AA6185159EE396E3EA96FFA834DD0F09E3A9"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-cpu-haswell.dll",
+        "Hash":  "041560494755D0874C5389C7C07446F2DB19366DC001A436398171C692CA9ED6"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-cpu-icelake.dll",
+        "Hash":  "0E5318F1EC607A56E16E1361565A9C9FB1F615D0938F5DCADC549B9C62B589A2"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-cpu-sandybridge.dll",
+        "Hash":  "1719D06F787AF63C3EEFD84F04BDED9B1AF0CB9A52F0707B86BB5E843CA0A7F4"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-cpu-skylakex.dll",
+        "Hash":  "B444CE3E1A1FAAC8D8123073CB7629C00040F52CB009596ECC55061336379093"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-cpu-sse42.dll",
+        "Hash":  "142BC9DBCC604D55B888208FE099870E36438C9CDBCB179E8B4BB613232A979E"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-cpu-x64.dll",
+        "Hash":  "DC82C4DA1DECB4F0C14F06FC93534E661A48481B9D66779C43F0D747A8657E72"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml-cuda.dll",
+        "Hash":  "0F744AC00CE33F2D659C94B7565549A2E001F19571DE6CF6C50A9E763AE7494C"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml.dll",
+        "Hash":  "22787343B0549671E3291F94C5A48ECD475E25DAC43C35104644132545791140"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\ggml.txt",
+        "Hash":  "BCD8EC749126D45CB06737D0690295D73DF4B6E7E194205BCF91190368F27285"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\libsharpyuv.dll",
+        "Hash":  "AFACD942CC9493044433E1D68A338B2DEA002C5225260C6DB6D4376B68444D91"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\libwebp.dll",
+        "Hash":  "716B96A8D75527921A3757DC29F5E012BC0B22FB393E1332F1C4DC32F36A3D62"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\libwebpmux.dll",
+        "Hash":  "D5C80EDB0DE76046C8BFB859ADA398E9D6019DA27BBD1D5D03A77C2E6CA9839B"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\sd-cli.exe",
+        "Hash":  "859453E06643D7A78F5C874D863C25065B0C39343F9556163BCDF8086BE13303"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\sd-server.exe",
+        "Hash":  "E200B72DA0543193D57605986C1721666939980CFB9E980184A1DD9A556ADCE5"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\stable-diffusion.cpp.txt",
+        "Hash":  "4E76049398DF734A97DB46F3BD4B5CBC460CB5F6BFAF737CDC3D6FBB8AB3DE27"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\stable-diffusion.dll",
+        "Hash":  "A34EDF6AD0A6219E2FC6503AD4572B67BF4A7C8CE0DB1D90D501B36B8B59053E"
+    },
+    {
+        "Path":  "E:\\flux\\sdcpp\\runtime\\webm.dll",
+        "Hash":  "89C03B357A00360FF8292D14632A654F4040F26B5C184C3BF2191AAEEAA76608"
+    }
+]
