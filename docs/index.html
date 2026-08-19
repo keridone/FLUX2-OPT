@@ -30,7 +30,13 @@
     <section class="chart-section" id="history" aria-labelledby="chart-title">
       <div class="section-heading">
         <div><span class="section-index">01 / HISTORY</span><h2 id="chart-title">端到端延迟演进</h2></div>
-        <div class="chart-legend"><span></span> Median latency · 越低越好</div>
+        <div class="chart-toolbar" aria-label="图表指标切换">
+          <div class="metric-toggle" role="group" aria-label="选择图表指标">
+            <button type="button" data-metric="latency" aria-pressed="true">延迟</button>
+            <button type="button" data-metric="throughput" aria-pressed="false">Tasks / 秒</button>
+          </div>
+          <div class="chart-legend" id="chart-legend"><span></span> Median latency · 越低越好</div>
+        </div>
       </div>
       <div class="chart-shell">
         <div class="chart-kpis" id="chart-kpis"></div>
