@@ -1,0 +1,122 @@
+[
+  {
+    "group": "identical",
+    "index": 1,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8359
+  },
+  {
+    "group": "identical",
+    "index": 2,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8861
+  },
+  {
+    "group": "identical",
+    "index": 3,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8316
+  },
+  {
+    "group": "identical",
+    "index": 4,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8473
+  },
+  {
+    "group": "identical",
+    "index": 5,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8663
+  },
+  {
+    "group": "identical",
+    "index": 6,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8265
+  },
+  {
+    "group": "identical",
+    "index": 7,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8817
+  },
+  {
+    "group": "identical",
+    "index": 8,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8496
+  },
+  {
+    "group": "identical",
+    "index": 9,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8482
+  },
+  {
+    "group": "identical",
+    "index": 10,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8647
+  },
+  {
+    "group": "distinct",
+    "index": 1,
+    "task_id": "season_001_winter_city",
+    "wall_seconds": 2.8479
+  },
+  {
+    "group": "distinct",
+    "index": 2,
+    "task_id": "season_002_autumn_lake",
+    "wall_seconds": 2.8404
+  },
+  {
+    "group": "distinct",
+    "index": 3,
+    "task_id": "season_003_spring_village",
+    "wall_seconds": 2.9065
+  },
+  {
+    "group": "distinct",
+    "index": 4,
+    "task_id": "season_004_summer_temple",
+    "wall_seconds": 2.8832
+  },
+  {
+    "group": "distinct",
+    "index": 5,
+    "task_id": "season_005_winter_farm",
+    "wall_seconds": 2.8626
+  },
+  {
+    "group": "distinct",
+    "index": 6,
+    "task_id": "season_006_autumn_forest",
+    "wall_seconds": 2.8436
+  },
+  {
+    "group": "distinct",
+    "index": 7,
+    "task_id": "season_007_spring_castle",
+    "wall_seconds": 2.8338
+  },
+  {
+    "group": "distinct",
+    "index": 8,
+    "task_id": "season_008_summer_cabin",
+    "wall_seconds": 2.8697
+  },
+  {
+    "group": "distinct",
+    "index": 9,
+    "task_id": "season_009_winter_lighthouse",
+    "wall_seconds": 2.8733
+  },
+  {
+    "group": "distinct",
+    "index": 10,
+    "task_id": "season_010_autumn_suburb",
+    "wall_seconds": 2.8245
+  }
+]

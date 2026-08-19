@@ -1,0 +1,19 @@
+{
+  "run_id": "condition-cache-baseline-v1",
+  "purpose": "Detect cross-request prompt/reference-image cache behavior",
+  "identical_requests": {
+    "runs": 10,
+    "median_seconds": 2.8489,
+    "mean_seconds": 2.8538,
+    "min_seconds": 2.8265,
+    "max_seconds": 2.8861
+  },
+  "distinct_requests": {
+    "runs": 10,
+    "median_seconds": 2.8552,
+    "mean_seconds": 2.8586,
+    "min_seconds": 2.8245,
+    "max_seconds": 2.9065
+  },
+  "interpretation": "No cross-request cache hit is exposed by the API; server phase logs must confirm encode_first_stage and get_learned_condition execute per request."
+}
