@@ -2,6 +2,7 @@ import hashlib
 import importlib.util
 import json
 import statistics
+import sys
 import time
 from pathlib import Path
 
@@ -10,10 +11,12 @@ ROOT = Path(r"E:\flux")
 BASELINE_MODULE = ROOT / "benchmark" / "code" / "run_baseline.py"
 TASKS = ROOT / "benchmark" / "code" / "tasks.json"
 INPUT = ROOT / "benchmark" / "datasets" / "season-weather-edit-v1" / "inputs" / "season_001_winter_city.png"
-OUT = ROOT / "optimization" / "runs" / "q8-mmq-x64-v1"
+RUN_ID = sys.argv[1] if len(sys.argv) > 1 else "q8-mmq-x64-v1"
+CANDIDATE_LABEL = sys.argv[2] if len(sys.argv) > 2 else "candidate-x64"
+OUT = ROOT / "optimization" / "runs" / RUN_ID
 BINARIES = {
-    "control-x128": ROOT / "sdcpp" / "experiments" / "q8-control" / "sd-cli.exe",
-    "candidate-x64": ROOT / "sdcpp" / "source" / "build-q8-control-vs" / "bin" / "Release" / "sd-cli.exe",
+    "control-x128-y128": ROOT / "sdcpp" / "experiments" / "q8-control" / "sd-cli.exe",
+    CANDIDATE_LABEL: ROOT / "sdcpp" / "source" / "build-q8-control-vs" / "bin" / "Release" / "sd-cli.exe",
 }
 
 
@@ -72,8 +75,8 @@ def main():
             "binary_sha256": rows[0]["binary_sha256"],
             "output_hashes": sorted({x["output_sha256"] for x in rows}),
         }
-    control = summary["variants"]["control-x128"]["wall_seconds_median"]
-    candidate = summary["variants"]["candidate-x64"]["wall_seconds_median"]
+    control = summary["variants"]["control-x128-y128"]["wall_seconds_median"]
+    candidate = summary["variants"][CANDIDATE_LABEL]["wall_seconds_median"]
     summary["candidate_speedup_percent"] = round(100 * (control - candidate) / control, 3)
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(json.dumps(summary, indent=2), flush=True)

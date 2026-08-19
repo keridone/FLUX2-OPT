@@ -1,0 +1,21 @@
+{
+  "run_id": "q8-mmq-y64-v1",
+  "candidate": "mmq_x=128, mmq_y=64",
+  "status": "rejected",
+  "online_runtime_changed": false,
+  "control_warmups_completed": 2,
+  "candidate_warmups_completed": 0,
+  "timed_runs_completed": 0,
+  "initial_failure": {
+    "status_code": 3221226505,
+    "cause": "host/device tile mismatch in the first experimental patch caused shared-memory under-allocation and an illegal CUDA memory access",
+    "evidence": "q8-mmq-y64-v1/candidate-x128-y64/warmup-1.log"
+  },
+  "corrected_candidate": {
+    "build_status": "failed",
+    "compiler_error": "static assertion failed with nwarps*tile_C::I != mmq_y",
+    "evidence": "q8-mmq-y64-v1/build.log"
+  },
+  "conclusion": "The current MMA kernel couples 8 warps to a 128-row accumulator tile. Reducing mmq_y alone is invalid; it requires a coordinated tile_C and warp-mapping redesign.",
+  "source_restored_clean": true
+}

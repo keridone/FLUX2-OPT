@@ -1,0 +1,21 @@
+﻿{
+    "run_id":  "q8-control-deep-v1",
+    "captured_at":  "2026-08-19T14:31:30.7412386+08:00",
+    "runtime":  "E:\\flux\\sdcpp\\experiments\\q8-control\\sd-cli.exe",
+    "runtime_sha256":  "6701BB1AF38BD8067A6798ECAE20EB19E361F48D8F74BF4F4679A21B6154CF0D",
+    "profiler":  "NVIDIA (R) Nsight Compute Command Line Profiler\r\nCopyright (c) 2018-2025 NVIDIA Corporation\r\nVersion 2025.3.1.0 (build 36398880) (public-release)",
+    "kernel_regex":  ".*mul_mat_q\u003c(ggml_type)8,.*",
+    "launch_skip":  50,
+    "sections":  [
+                     "LaunchStats",
+                     "Occupancy",
+                     "SpeedOfLight",
+                     "ComputeWorkloadAnalysis",
+                     "MemoryWorkloadAnalysis",
+                     "SchedulerStats",
+                     "WarpStateStats",
+                     "InstructionStats",
+                     "SourceCounters"
+                 ],
+    "cpu_offload":  false
+}

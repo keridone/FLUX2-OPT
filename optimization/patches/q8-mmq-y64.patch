@@ -1,0 +1,13 @@
+diff --git a/src/ggml-cuda/mmq.cuh b/src/ggml-cuda/mmq.cuh
+--- a/src/ggml-cuda/mmq.cuh
++++ b/src/ggml-cuda/mmq.cuh
+@@ -142,3 +142,3 @@
+ static int get_mmq_y_host(const int cc) {
+     return GGML_CUDA_CC_IS_AMD(cc) ? (GGML_CUDA_CC_IS_RDNA1(cc) ? 64 : 128) :
+-        ((GGML_CUDA_CC_IS_NVIDIA(cc) && ggml_cuda_highest_compiled_arch(cc) >= GGML_CUDA_CC_VOLTA) ? 128 : 64);
++        ((GGML_CUDA_CC_IS_NVIDIA(cc) && ggml_cuda_highest_compiled_arch(cc) >= GGML_CUDA_CC_VOLTA) ? 64 : 64);
+@@ -164,3 +164,3 @@
+ #if __CUDA_ARCH__ >= GGML_CUDA_CC_VOLTA
+-    return 128;
++    return 64;
+ #else

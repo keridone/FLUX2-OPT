@@ -85,6 +85,27 @@ Every candidate must retain the baseline output hash where deterministic. If a
 compiler change prevents byte equality, run the complete quality review before
 acceptance.
 
+### Deep Q8 bottleneck classification
+
+Nsight Compute captured a representative `mul_mat_q<8,128,0>` launch at
+6.9495 ms. It uses 255 registers/thread and 58.88 KiB shared memory/block,
+with no local-memory spills. Active warps are 16.67%, SM throughput is 54.30%,
+Tensor/IMMA activity is 37.37%, and DRAM throughput is only 13.46%. The Q8
+kernel is therefore occupancy/compute-latency constrained, not DRAM-bandwidth
+or spill constrained. Machine-readable metrics and the full report are in
+`optimization/results/q8-control-deep-v1`.
+
+### Q8 experiment 2: reduce `mmq_y` to 64
+
+The candidate retained `mmq_x=128` and attempted to halve `mmq_y`, which would
+reduce dynamic shared memory from 58.88 KiB to approximately 38.88 KiB. The
+corrected source was rejected at compile time by the MMA invariant
+`nwarps*tile_C::I == mmq_y`. The current implementation couples eight warps to
+the 128-row accumulator tile, so changing Y alone is not a valid specialization.
+No timed A/B runs were accepted and the deployed runtime was not changed. The
+failure logs and decision record are stored in
+`optimization/results/q8-mmq-y64-v1`.
+
 ### Q8 experiment 1: cap `mmq_x` at 64
 
 The first candidate limited `GGML_TYPE_Q8_0` to `mmq_x <= 64`, instead of the
