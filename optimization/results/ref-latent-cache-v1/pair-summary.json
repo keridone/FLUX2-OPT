@@ -1,0 +1,17 @@
+{
+  "run_id": "persistent-server-v1",
+  "tasks_per_pair": 2,
+  "repeats": 3,
+  "persistent_pair_wall_seconds_median": 5.3234,
+  "throughput_tasks_per_second": 0.3757,
+  "separate_cli_pair_wall_seconds_control": 12.2753,
+  "wall_time_reduction_percent": 56.633,
+  "output_hashes_by_task": [
+    [
+      "26077029be867fd8fdf2a0abd78739805e31f79a5e3ae9a708c6146ba2ce9fd2"
+    ],
+    [
+      "86d557b7b8d1ee8c8db7bc690d40403a9920f195b3051b7bb881d077c8503d31"
+    ]
+  ]
+}

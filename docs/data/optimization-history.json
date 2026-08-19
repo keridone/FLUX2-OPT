@@ -101,12 +101,45 @@
         "qualityPassPercent": 100
       },
       "gainPercent": 51.06,
-      "status": "current",
+      "status": "accepted",
       "links": [
         { "label": "实现与报告", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/PARALLEL_INFERENCE_REPORT.md" },
         { "label": "完整指标", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/results/persistent-server-v1/summary.json" },
         { "label": "60 次回归", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/results/persistent-suite-v1/summary.json" },
         { "label": "实验脚本", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/benchmark_persistent_server.py" }
+      ]
+    },
+    {
+      "id": "ref-latent-cache",
+      "sequence": 4,
+      "date": "2026-08-19",
+      "label": "优化 03",
+      "version": "ref-latent-cache-v1",
+      "method": "Bounded Reference Latent LRU",
+      "headline": "跨请求复用重复参考图的 VAE latent",
+      "summary": "在持久上下文中加入容量为 8 的 LRU，以图像内容和 VAE resize 参数构造缓存键，命中时跳过参考图 VAE encode。",
+      "details": [
+        "相同参考图中位延迟由 2.8489 秒降至 2.6968 秒",
+        "不同参考图延迟保持 2.8399 秒，未引入明显回退",
+        "缓存容量固定为 8，并验证 LRU 逐出路径",
+        "输出哈希与未缓存 source-built control 完全一致"
+      ],
+      "metrics": {
+        "medianSeconds": 2.6968,
+        "p95Seconds": 2.8623,
+        "generationSeconds": 2.57,
+        "samplingSeconds": 2.15,
+        "conditioningSeconds": 0.1,
+        "peakVramMiB": 9183,
+        "peakRamMiB": 838,
+        "qualityPassPercent": 100
+      },
+      "gainPercent": 53.82,
+      "status": "current",
+      "links": [
+        { "label": "实现补丁", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/patches/ref-latent-cache-v1.patch" },
+        { "label": "缓存指标", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/results/ref-latent-cache-v1/cache-summary.json" },
+        { "label": "实现与报告", "href": "https://github.com/keridone/FLUX2-OPT/blob/main/optimization/PARALLEL_INFERENCE_REPORT.md" }
       ]
     }
   ],

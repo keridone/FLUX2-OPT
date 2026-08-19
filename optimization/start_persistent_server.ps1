@@ -1,13 +1,14 @@
 param(
     [string]$Root = "E:\flux",
     [string]$ListenIp = "127.0.0.1",
-    [int]$ListenPort = 12345
+    [int]$ListenPort = 12345,
+    [string]$Variant = "persistent-server-v1"
 )
 
 $ErrorActionPreference = "Stop"
-$Server = Join-Path $Root "sdcpp\experiments\persistent-server-v1\sd-server.exe"
-$Log = Join-Path $Root "optimization\runs\persistent-server-v1.log"
-$PidFile = Join-Path $Root "optimization\runs\persistent-server-v1.pid"
+$Server = Join-Path $Root "sdcpp\experiments\$Variant\sd-server.exe"
+$Log = Join-Path $Root "optimization\runs\$Variant.log"
+$PidFile = Join-Path $Root "optimization\runs\$Variant.pid"
 $CudaRuntime = Join-Path $Root ".venv\Lib\site-packages\nvidia\cuda_runtime\bin"
 $Cublas = Join-Path $Root ".venv\Lib\site-packages\nvidia\cublas\bin"
 $env:PATH = "$CudaRuntime;$Cublas;$env:PATH"

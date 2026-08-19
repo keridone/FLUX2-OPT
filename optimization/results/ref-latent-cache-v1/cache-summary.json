@@ -1,0 +1,24 @@
+{
+  "run_id": "ref-latent-cache-v1",
+  "purpose": "Measure bounded cross-request reference-image latent cache",
+  "identical_requests": {
+    "runs": 10,
+    "median_seconds": 2.6968,
+    "mean_seconds": 2.723,
+    "min_seconds": 2.6656,
+    "max_seconds": 2.972
+  },
+  "distinct_requests": {
+    "runs": 10,
+    "median_seconds": 2.8399,
+    "mean_seconds": 2.8341,
+    "min_seconds": 2.7044,
+    "max_seconds": 2.8783
+  },
+  "baseline_identical_median_seconds": 2.8489,
+  "identical_hit_latency_reduction_percent": 5.339,
+  "cache_capacity": 8,
+  "observed_evictions": 4,
+  "output_hash_match_control": true,
+  "interpretation": "Identical reference images hit the latent cache and skip VAE encoding; distinct images retain baseline behavior."
+}
