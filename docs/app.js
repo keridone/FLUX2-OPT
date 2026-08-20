@@ -6,7 +6,7 @@ function renderPage(){
  document.querySelector("#node-list").innerHTML=n.map(renderNodeCard).join("");
  document.querySelector("#bottleneck-list").innerHTML=d.bottlenecks.map(x=>'<div class="bottleneck-row"><div class="bottleneck-name"><strong>'+x.name+"</strong><span>"+x.type+'</span></div><div class="bar-track"><div class="bar-fill '+x.tone+'" style="width:'+Math.min(x.share*2.2,100)+'%"></div></div><div class="bottleneck-value">'+x.share.toFixed(1)+"%</div></div>").join("");
  document.querySelector("#roadmap-grid").innerHTML=d.roadmap.map(x=>'<article class="roadmap-card"><span class="roadmap-rank">'+x.rank+"</span><h3>"+x.title+"</h3><p>"+x.text+"</p></article>").join("");
- document.querySelector("#updated-at").textContent=d.updatedAt;setupChart();renderChartKpis();
+ setupChart();renderChartKpis();
 }
 function tasksPerSecond(node){return node.metrics.tasksPerSecond||1/node.metrics.medianSeconds}
 function renderChartKpis(){
@@ -16,7 +16,7 @@ function renderChartKpis(){
 }
 function renderNodeCard(n){
  const m=n.metrics,metrics=[["Median",m.medianSeconds.toFixed(3)+"s"],["P95",m.p95Seconds.toFixed(3)+"s"],["Peak VRAM",fmt.format(m.peakVramMiB)+" MiB"],["Peak RAM",fmt.format(m.peakRamMiB)+" MiB"],["Quality",m.qualityPassPercent+"%"]];
- return '<article class="node-card" id="'+n.id+'"><div class="node-rail"><span class="node-number">'+String(n.sequence).padStart(2,"0")+'</span><span class="node-date">'+n.date+'</span></div><div class="node-body"><div class="node-title-row"><div><span class="node-label">'+n.label+" · "+n.method+"</span><h3>"+n.headline+'</h3></div><span class="status-pill '+n.status+'">'+n.status+'</span></div><p class="node-summary">'+n.summary+'</p><div class="node-metrics">'+metrics.map(x=>'<div class="metric-cell"><span>'+x[0]+"</span><strong>"+x[1]+"</strong></div>").join("")+'</div><div class="node-bottom"><ul class="detail-list">'+n.details.map(x=>"<li>"+x+"</li>").join("")+'</ul><div class="node-links">'+n.links.map(x=>'<a href="'+x.href+'">'+x.label+" ↗</a>").join("")+"</div></div></div></article>";
+ return '<article class="node-card" id="'+n.id+'"><div class="node-rail"><span class="node-number">'+String(n.sequence).padStart(2,"0")+'</span></div><div class="node-body"><div class="node-title-row"><div><span class="node-label">'+n.label+" · "+n.method+"</span><h3>"+n.headline+'</h3></div><span class="status-pill '+n.status+'">'+n.status+'</span></div><p class="node-summary">'+n.summary+'</p><div class="node-metrics">'+metrics.map(x=>'<div class="metric-cell"><span>'+x[0]+"</span><strong>"+x[1]+"</strong></div>").join("")+'</div><div class="node-bottom"><ul class="detail-list">'+n.details.map(x=>"<li>"+x+"</li>").join("")+'</ul><div class="node-links">'+n.links.map(x=>'<a href="'+x.href+'">'+x.label+" ↗</a>").join("")+"</div></div></div></article>";
 }
 function setupChart(){
  const c=document.querySelector("#history-chart"),controls=document.querySelector("#chart-focus-controls");
@@ -43,7 +43,7 @@ function drawChart(){
  const g=ctx.createLinearGradient(0,p.t,0,h-p.b);g.addColorStop(0,"rgba(183,255,60,.22)");g.addColorStop(1,"rgba(183,255,60,0)");
  ctx.beginPath();state.points.forEach((x,i)=>i?ctx.lineTo(x.x,x.y):ctx.moveTo(x.x,x.y));ctx.lineTo(state.points.at(-1).x,h-p.b);ctx.lineTo(state.points[0].x,h-p.b);ctx.closePath();ctx.fillStyle=g;ctx.fill();
  ctx.beginPath();state.points.forEach((x,i)=>i?ctx.lineTo(x.x,x.y):ctx.moveTo(x.x,x.y));ctx.strokeStyle="#b7ff3c";ctx.lineWidth=2.5;ctx.stroke();
- state.points.forEach((x,i)=>{const a=state.activeIndex===i;ctx.beginPath();ctx.arc(x.x,x.y,a?8:6,0,Math.PI*2);ctx.fillStyle="#090b10";ctx.fill();ctx.strokeStyle="#b7ff3c";ctx.lineWidth=a?4:3;ctx.stroke();ctx.fillStyle="#8e96a8";ctx.textAlign="center";ctx.fillText(x.node.date.slice(5).replace("-"," / "),x.x,h-p.b+29);ctx.fillStyle="#f3f5f7";ctx.font="500 10px 'DM Mono'";ctx.fillText(x.node.label.toUpperCase(),x.x,h-p.b+48);ctx.font="10px 'DM Mono'"});
+ state.points.forEach((x,i)=>{const a=state.activeIndex===i;ctx.beginPath();ctx.arc(x.x,x.y,a?8:6,0,Math.PI*2);ctx.fillStyle="#090b10";ctx.fill();ctx.strokeStyle="#b7ff3c";ctx.lineWidth=a?4:3;ctx.stroke();ctx.fillStyle="#f3f5f7";ctx.textAlign="center";ctx.font="500 10px 'DM Mono'";ctx.fillText(x.node.label.toUpperCase(),x.x,h-p.b+34);ctx.font="10px 'DM Mono'"});
  document.querySelectorAll(".chart-point-button").forEach((b,i)=>{b.style.left=state.points[i].x+"px";b.style.top=state.points[i].y+"px"});
 }
 function coords(e){const r=e.currentTarget.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
@@ -53,7 +53,7 @@ function activateNearest(e){const c=coords(e),n=nearest(c.x,c.y);if(n.d<44)showP
 function showPoint(i){
  state.activeIndex=i;drawChart();const p=state.points[i],n=p.node,m=n.metrics,t=document.querySelector("#chart-tooltip"),gain=n.gainPercent?"+"+n.gainPercent.toFixed(2)+"%":"BASELINE";
  const value=state.metric==="throughput"?tasksPerSecond(n).toFixed(3)+" task/s":m.medianSeconds.toFixed(3)+"s";
- t.innerHTML='<div class="tooltip-top"><span>'+n.label+"</span><span>"+n.date+'</span></div><div class="tooltip-value">'+value+'</div><div class="tooltip-method">'+n.method+" · "+gain+'</div><div class="tooltip-summary">Median '+m.medianSeconds.toFixed(3)+'s · P95 '+m.p95Seconds.toFixed(3)+"s<br>VRAM "+fmt.format(m.peakVramMiB)+" MiB · "+n.summary+"</div>";
+ t.innerHTML='<div class="tooltip-top"><span>'+n.label+'</span></div><div class="tooltip-value">'+value+'</div><div class="tooltip-method">'+n.method+" · "+gain+'</div><div class="tooltip-summary">Median '+m.medianSeconds.toFixed(3)+'s · P95 '+m.p95Seconds.toFixed(3)+"s<br>VRAM "+fmt.format(m.peakVramMiB)+" MiB · "+n.summary+"</div>";
  const wrap=document.querySelector(".canvas-wrap");t.style.left=Math.max(130,Math.min(p.x,wrap.clientWidth-130))+"px";t.style.top=Math.max(115,p.y)+"px";t.classList.add("visible");
 }
 function hideTooltip(){document.querySelector("#chart-tooltip").classList.remove("visible")}
