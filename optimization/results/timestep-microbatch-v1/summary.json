@@ -1,0 +1,24 @@
+{
+  "run_id": "timestep-microbatch-v1",
+  "date": "2026-08-20",
+  "status": "rejected",
+  "scope": "Flux.2 Klein, Euler, 512x512, batch size 2",
+  "control_pair_wall_seconds": 4.9427,
+  "attempts": [
+    {
+      "name": "batched latent and conditions with stock Flux runner",
+      "result": "assertion_failure",
+      "evidence": "flux.hpp:1525 requires x->ne[3] == 1"
+    },
+    {
+      "name": "batched latent and conditions after removing batch assertion",
+      "result": "backend_stall",
+      "elapsed_before_termination_seconds": 90,
+      "gpu_memory_mib": 4595,
+      "gpu_utilization_percent": 1,
+      "process_cpu_seconds": 4.703125
+    }
+  ],
+  "conclusion": "The current Flux graph is not batch-safe. Removing the explicit batch-size guard enters a non-progressing backend path and is substantially worse than the serial control.",
+  "decision": "Do not integrate direct latent-axis batching. Preserve the serial persistent queue and two-level caches as the production control."
+}

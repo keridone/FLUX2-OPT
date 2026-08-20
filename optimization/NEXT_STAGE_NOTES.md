@@ -76,3 +76,13 @@
 - 文本缓存满容量占用 240 MiB CPU 内存，GPU 显存无持续增长。
 - 20×3 回归 60/60 成功且输出确定。下一项进入 timestep-aware micro-batch
   可行性实现，缓存结果作为新的服务 control。
+
+### Timestep micro-batch 实验结论
+
+- `batch_count` 只是逐张调用 sampler，不是真正的 GPU batch。
+- batch=2 latent/condition 原型编译通过，但 stock Flux runner 在
+  `flux.hpp:1525` 明确断言 batch 必须为 1。
+- 解除断言后首个 timestep 超过 90 秒无进展；GPU 利用率 1%、显存 4,595 MiB，
+  判定为 batch graph/backend 不兼容而非 OOM。
+- 该方案已拒绝，实验进程和源码保护条件均已恢复。下一步回到执行层优化：
+  Q8 GEMM/attention kernel 并行度、融合及 CUDA Graph。
