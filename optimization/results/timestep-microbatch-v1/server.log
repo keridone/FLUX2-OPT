@@ -1,0 +1,32 @@
+stable-diffusion.cpp:718  - loading diffusion model from 'E:\flux\sdcpp\models\flux-2-klein-4b-Q8_0.gguf'
+[INFO ] model_loader.cpp:236  - load E:\flux\sdcpp\models\flux-2-klein-4b-Q8_0.gguf using gguf format
+[INFO ] stable-diffusion.cpp:775  - loading llm from 'E:\flux\sdcpp\models\Qwen3-4B-Q4_K_M.gguf'
+[INFO ] model_loader.cpp:236  - load E:\flux\sdcpp\models\Qwen3-4B-Q4_K_M.gguf using gguf format
+[INFO ] stable-diffusion.cpp:789  - loading vae from 'E:\flux\sdcpp\models\split_files\vae\flux2-vae.safetensors'
+[INFO ] model_loader.cpp:242  - load E:\flux\sdcpp\models\split_files\vae\flux2-vae.safetensors using safetensors format
+[INFO ] stable-diffusion.cpp:906  - Version: Flux.2 klein 
+[INFO ] stable-diffusion.cpp:957  - Weight type stat:                      f32: 395  |    q8_0: 80   |    q4_K: 216  |    q6_K: 37   |     i32: 1    |    bf16: 69   
+[INFO ] stable-diffusion.cpp:958  - Conditioner weight type stat:          f32: 145  |    q4_K: 216  |    q6_K: 37   
+[INFO ] stable-diffusion.cpp:959  - Diffusion model weight type stat:     q8_0: 80   |    bf16: 69   
+[INFO ] stable-diffusion.cpp:960  - VAE weight type stat:                  f32: 250  |     i32: 1    
+[INFO ] stable-diffusion.cpp:1495 - using VAE for encoding / decoding
+[INFO ] auto_encoder_kl.hpp:527  - vae decoder: ch = 128
+[INFO ] stable-diffusion.cpp:1620 - Using flash attention in the diffusion model
+[INFO ] stable-diffusion.cpp:1743 - total params memory size = 7821.21MB (VRAM 7821.21MB, RAM 0.00MB): text_encoders 3555.38MB(VRAM), diffusion_model 4101.40MB(VRAM), vae 164.43MB(VRAM), controlnet 0.00MB(N/A), extensions 0.00MB(N/A)
+[INFO ] stable-diffusion.cpp:1853 - running in Flux FLOW mode
+[INFO ] main.cpp:148  - listening on: http://127.0.0.1:12345
+[INFO ] stable-diffusion.cpp:5814 - generate_image 512x512
+[INFO ] stable-diffusion.cpp:3151 - Using 'flux2' preset for reference images
+[INFO ] denoiser.hpp:1108 - get_sigmas with Flux2 scheduler
+[INFO ] stable-diffusion.cpp:4545 - sampling using Euler method
+[INFO ] stable-diffusion.cpp:5231 - EDIT mode
+[INFO ]   |##################################################| 108/108 - 610.81MB/s[K
+model_loader.cpp:1309 - loading tensors completed, taking 0.22s (read: 0.02s, memcpy: 0.00s, convert: 0.01s, copy_to_backend: 0.00s)
+[INFO ] stable-diffusion.cpp:3909 - ref latent cache store (size=1/8, evictions=0)
+[INFO ] stable-diffusion.cpp:5364 - encode_first_stage completed, taking 0.51s
+[INFO ]   |######################                            | 131/298 - 2.68GB/s[K  |################################################# | 288/298 - 3.21GB/s[K  |##################################################| 298/298 - 1.75GB/s[K
+model_loader.cpp:1309 - loading tensors completed, taking 1.03s (read: 0.25s, memcpy: 0.00s, convert: 0.02s, copy_to_backend: 0.16s)
+[INFO ] stable-diffusion.cpp:4000 - text condition cache store (size=1/16, bytes=15728640, evictions=0)
+[INFO ] stable-diffusion.cpp:5471 - get_learned_condition completed, taking 1.15s
+[INFO ] stable-diffusion.cpp:5855 - timestep micro-batch enabled (batch=2, sampler=euler)
+[INFO ] 
